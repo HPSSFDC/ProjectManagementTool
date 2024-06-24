@@ -263,6 +263,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>PMT_Program__c.Payroll_Application__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>PMT_Program__c.Program_Health_Icon__c</field>
         <readable>true</readable>
