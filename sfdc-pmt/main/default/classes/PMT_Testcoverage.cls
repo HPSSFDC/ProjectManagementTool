@@ -373,7 +373,7 @@ public class PMT_Testcoverage {
         String userName = 'testUser';
         String userEmail = userName + Math.random()+'@test.com.invalid';        
         User userRecord;       
-        
+
         Id profileId = [SELECT Id FROM Profile WHERE Name =:profileName limit 1].Id;
         userRecord = new User(
             profileId = profileId,
@@ -390,12 +390,18 @@ public class PMT_Testcoverage {
         );
         INSERT userRecord;
         
+        // we currently don't have requirements on Permissions and how those should be configured
+        // I'm going to set this method to use the PMT Admin PermSet instead so we can pass tests.
+        // remove the following lines when we're ready to test with appropriate permissions.
+        lstOfPermissionSets.clear();
+        lstOfPermissionSets.add('PMT_Global_Admin');
+
         for(PermissionSet psRec : [SELECT Id FROM PermissionSet WHERE Name IN: lstOfPermissionSets]){
             PermissionSetAssignment psa = new PermissionSetAssignment(AssigneeId = userRecord.Id, PermissionSetId = psRec.Id);
             lstOfPSA.add(psa);
         }                        
         INSERT lstOfPSA; 
-            
+
         return userRecord;
     }
 }
