@@ -263,6 +263,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>PMT_Program__c.Payroll_Application__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>PMT_Program__c.Program_Health_Icon__c</field>
         <readable>true</readable>
@@ -270,6 +275,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>PMT_Program__c.Program_Owner__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>PMT_Project__c.Application__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -555,6 +565,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>PMT_Project__c.SystemsImpacted__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>PMT_Project__c.Type_of_Template__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
