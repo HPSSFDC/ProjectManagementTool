@@ -135,7 +135,7 @@ public class PMT_Testcoverage {
     * Description: Test method for getCasesForProject apex method which Search for cases related to project
     * *****************************************************************************************/   
     static testmethod void getCasesForProjectTestCase(){    
-        User testUser = PMT_Testcoverage.createUser('Standard User', new List<String>{'PMT_Global_Admin'});
+        User testUser = PMT_Testcoverage.createUser('Payroll Rep', new List<String>{'PMT_Global_Admin'});
             PMT_Project__c projectRec = [SELECT Id FROM PMT_Project__c LIMIT 1];
             Test.startTest();
                 List<Case> lstOfResult = PMT_Utility.getCasesForProject(projectRec.Id);
