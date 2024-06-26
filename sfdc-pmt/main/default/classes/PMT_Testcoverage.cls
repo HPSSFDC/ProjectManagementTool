@@ -8,7 +8,6 @@
 public class PMT_Testcoverage {
  
     @testSetup static void setup(){
-        // User testUser = PMT_Testcoverage.createUser('System Administrator', new List<String>{'PMT_Global_Admin'});
             List<PMT_Phase__c> lstOfPhases = new List<PMT_Phase__c>();
             List<PMT_Task__c> lstOfTasks = new List<PMT_Task__c>();
             Integer resourceAvailability = Integer.valueOf(PMT_Utility.getPMTSettings('Default').Default_Availability_for_Scheduler__c);
@@ -143,7 +142,6 @@ public class PMT_Testcoverage {
     //             List<Case> lstOfResult = PMT_Utility.getCasesForProject(projectRec.Id);
     //         Test.stopTest();
     //         system.assertEquals(10, lstOfResult.size(), 'There must be 10 cases related to project.');
-        
     // }
     
     /*****************************************************************************************
@@ -276,6 +274,7 @@ public class PMT_Testcoverage {
     //         system.debug([select id, project__r.name from PMT_Resource_Allocation__c]);
     //         system.debug([select id, User__r.name from PMT_Resource_Availability__c]);
             
+
     //         Test.startTest();
     //         List<String> lstOfAllocationFields = new List<String>{'Id','Role__c','Resource_Availability__c', 'Jan__c','Feb__c','Mar__c','Apr__c','May__c','Jun__c','Jul__c','Aug__c','Sep__c','Oct__c','Nov__c','Dec__c','Fiscal_Year__c','Project__c'};
     //         List<String> lstOfAvailabilityFields = new List<String>{'User__c','Feb_Remaining__c','Mar_Remaining__c','Apr_Remaining__c','May_Remaining__c','Jun_Remaining__c','Jul_Remaining__c','Aug_Remaining__c','Sep_Remaining__c','Oct_Remaining__c','Nov_Remaining__c','Dec_Remaining__c', 'Jan_Remaining__c','Id','fiscal_year__c', 'Start_Date__c', 'End_Date__c'};
@@ -293,6 +292,7 @@ public class PMT_Testcoverage {
     //         // system.assertEquals(1, resDetails.dummyAvailabilities.size(), '1 Dummy availability should be found');
     //         Test.stopTest();
     // }
+
     
     /*****************************************************************************************
     * Method Name: getFiltersTest
@@ -405,8 +405,6 @@ public class PMT_Testcoverage {
         lstOfPermissionSets.add('PMT_Global_Admin');
         lstOfPermissionSets.add('PMT_Resource_Planner');
         lstOfPermissionSets.add('PMT_User');
-        lstOfPermissionSets.add('SURF_Permission_set');
-        lstOfPermissionSets.add('Questionnaire_Admin');
 
         for(PermissionSet psRec : [SELECT Id FROM PermissionSet WHERE Name IN: lstOfPermissionSets]){
             PermissionSetAssignment psa = new PermissionSetAssignment(AssigneeId = userRecord.Id, PermissionSetId = psRec.Id);
