@@ -279,6 +279,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>PMT_Project__c.Account__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>PMT_Project__c.Application__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -330,6 +335,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>PMT_Project__c.Fiscal_Year_Difference__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>PMT_Project__c.Gateway_Account__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
