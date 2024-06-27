@@ -51,25 +51,11 @@ public with sharing class PMT_ResourceManagementCtrl {
                                PMT_Utility.validateCRUD('User', lstOfUsersFields, 'isAccessible') && 
                                PMT_Utility.validateCRUD('PMT_Project__c', lstOfProjectFields, 'isAccessible')){
                                    
-                                   resource.ResourceAllocations = getResourceAllocation(project.Id);
-                                   
-                                   //calculate fiscal years using start and end
-                                   Integer startFiscal = Integer.valueOf(project.Start_Fiscal_Year__c.mid(2,2));
-                                   Integer endFiscal = Integer.valueOf(project.End_Fiscal_Year__c.mid(2,2));
-                                   Integer difference = endFiscal - startFiscal;
-                                   List<String> years = new List<String>();
-                                   for(integer i=0;i<=difference;i++){
-                                       years.add('FY' + (startFiscal+i));
-                                   }
-                                   
-                                   resource.ResourceAvailabilities = getAvailibility(years, project);
-                                   resource.dummyAvailabilities = getDummyAvailabilities(years, project);
-                                   resource.roles = getRolesPickVals();
-                                   resource.isCreatable = Schema.sObjectType.PMT_Resource_Allocation__c.isCreateable();
-                                   resource.fiscalYearOffset = Integer.valueOf(getPMTSettings().Start_Month_of_Fiscal_Year__c);
+                                   resource = buildResource(resource, project);
                                    return resource;
                                }else{
-                                   throw new AuraHandledException('Access restricted. Please contact system administrator.');          
+                                return resource;
+                                //    throw new AuraHandledException('Access restricted. Please contact system administrator.');          
                                }
         }
         catch(Exception e){
@@ -80,6 +66,26 @@ public with sharing class PMT_ResourceManagementCtrl {
                 }
             return null;
         }
+    }
+
+    public static ResourceDetail buildResource(ResourceDetail resource, PMT_Project__c project) {
+        resource.ResourceAllocations = getResourceAllocation(project.Id);
+                                   
+        //calculate fiscal years using start and end
+        Integer startFiscal = Integer.valueOf(project.Start_Fiscal_Year__c.mid(2,2));
+        Integer endFiscal = Integer.valueOf(project.End_Fiscal_Year__c.mid(2,2));
+        Integer difference = endFiscal - startFiscal;
+        List<String> years = new List<String>();
+        for(integer i=0;i<=difference;i++){
+            years.add('FY' + (startFiscal+i));
+        }
+        
+        resource.ResourceAvailabilities = getAvailibility(years, project);
+        resource.dummyAvailabilities = getDummyAvailabilities(years, project);
+        resource.roles = getRolesPickVals();
+        resource.isCreatable = Schema.sObjectType.PMT_Resource_Allocation__c.isCreateable();
+        resource.fiscalYearOffset = Integer.valueOf(getPMTSettings().Start_Month_of_Fiscal_Year__c);
+        return resource;
     }
     
     /*****************************************************************

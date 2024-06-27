@@ -14,9 +14,16 @@ public with sharing class PMT_Utility {
     @AuraEnabled
     public static List<Case> getCasesForProject(Id recordId){    
         List<case> cases = new List<case>();
+        Boolean hasAccess;
         //Calling util method to check CRUD
         List<String> lstOfCaseFields = new List<String>{'CaseNumber', 'Subject', 'PMT_Days_Open__c', 'Description', 'Type', 'Status', 'Priority', 'PMT_Project__c'};        
-            boolean hasAccess = validateCRUD('Case', lstOfCaseFields, 'isAccessible');
+            try {
+                hasAccess = validateCRUD('Case', lstOfCaseFields, 'isAccessible');
+            } catch(Exception e) {
+                if (e.getMessage() != 'Access restricted. Please contact system administrator.') {
+                    throw new AuraHandledException(e.getMessage());
+                }
+            }
         
         if(hasAccess){  
             cases = [SELECT id,CaseNumber,Subject,PMT_Days_Open__c,Description,Type,Status,Priority,PMT_Project__c FROM Case 
@@ -24,7 +31,8 @@ public with sharing class PMT_Utility {
             return cases;
             
         }else{
-            throw new AuraHandledException('You don\'t have access to related Cases. Please contact system administrator.');
+            return cases;
+            // throw new AuraHandledException('You don\'t have access to related Cases. Please contact system administrator.');
         } 
     }
     

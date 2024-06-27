@@ -19,8 +19,6 @@ Public class PMT_ResourceAvailabilitySchedulerTest{
                 LocaleSidKey='en_US', ProfileId = standardprofile.Id, 
                 TimeZoneSidKey='America/Los_Angeles', UserName='PMTUser@testClass.com', IsActive = true);
                 INSERT pmtUsr;
-            
-            
                 Test.startTest();
                 PMT_CreateResourceAvailability.createRAOnUserInsert(new List<Id>{pmtUsr.Id});
                 Test.stopTest();
