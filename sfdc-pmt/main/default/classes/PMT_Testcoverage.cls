@@ -288,8 +288,7 @@ public class PMT_Testcoverage {
         }
     }
 
-    @isTest
-    static void buildResourceTest() {
+    static testmethod void buildResourceTest() {
         PMT_ResourceManagementCtrl.ResourceDetail resource = new PMT_ResourceManagementCtrl.ResourceDetail();
         PMT_Project__c project = [SELECT Id,Start_Fiscal_Year__c,End_Fiscal_Year__c FROM PMT_Project__c LIMIT 1];
 
