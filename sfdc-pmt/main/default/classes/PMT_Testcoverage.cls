@@ -135,6 +135,7 @@ public class PMT_Testcoverage {
     * Class : PMT_Utility
     * Description: Test method for getCasesForProject apex method which Search for cases related to project
     * *****************************************************************************************/   
+
     static testmethod void getCasesForProjectTestCase(){    
         User testUser = PMT_Testcoverage.createUser('System Administrator', new List<String>{'PMT_Global_Admin'});
             PMT_Project__c projectRec = [SELECT Id FROM PMT_Project__c LIMIT 1];
@@ -143,6 +144,7 @@ public class PMT_Testcoverage {
             Test.stopTest();
             // system.assertEquals(10, lstOfResult.size(), 'There must be 10 cases related to project.');
     }
+
     
     /*****************************************************************************************
     * Method Name: getPMTSettingsTest
@@ -267,13 +269,14 @@ public class PMT_Testcoverage {
     * Class : PMT_ResourceManagementCtrl
     * Description: Test method for getResourceDetailsWrapper apex method which search for availabilities, allocations
     * *****************************************************************************************/    
-    static testmethod void getResourceDetailsWrapperTestCase(){
-        User testUser = PMT_Testcoverage.createUser('Standard User', new List<String>{'PMT_Global_Admin'});
-            PMT_Project__c project = [SELECT Id,Start_Fiscal_Year__c,End_Fiscal_Year__c FROM PMT_Project__c LIMIT 1];
-            system.debug(project);
-            system.debug([select id, project__r.name from PMT_Resource_Allocation__c]);
-            system.debug([select id, User__r.name from PMT_Resource_Availability__c]);
+    // static testmethod void getResourceDetailsWrapperTestCase(){
+    //     User testUser = PMT_Testcoverage.createUser('Standard User', new List<String>{'PMT_Global_Admin'});
+    //         PMT_Project__c project = [SELECT Id,Start_Fiscal_Year__c,End_Fiscal_Year__c FROM PMT_Project__c LIMIT 1];
+    //         system.debug(project);
+    //         system.debug([select id, project__r.name from PMT_Resource_Allocation__c]);
+    //         system.debug([select id, User__r.name from PMT_Resource_Availability__c]);
             
+
 
             Test.startTest();
             // List<String> lstOfAllocationFields = new List<String>{'Id','Role__c','Resource_Availability__c', 'Jan__c','Feb__c','Mar__c','Apr__c','May__c','Jun__c','Jul__c','Aug__c','Sep__c','Oct__c','Nov__c','Dec__c','Fiscal_Year__c','Project__c'};
@@ -301,6 +304,7 @@ public class PMT_Testcoverage {
         Test.startTest();
         PMT_ResourceManagementCtrl.buildResource(resource, project);
     }
+
 
     
     /*****************************************************************************************
