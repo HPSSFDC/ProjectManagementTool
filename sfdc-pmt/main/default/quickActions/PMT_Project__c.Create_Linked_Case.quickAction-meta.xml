@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Create a case linked to the PMT project</description>
+    <flowDefinition>PMT_Payroll_Support_Master_Flow</flowDefinition>
+    <label>Create Linked Case</label>
+    <optionsCreateFeedItem>false</optionsCreateFeedItem>
+    <type>Flow</type>
+</QuickAction>
