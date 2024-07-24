@@ -5,7 +5,7 @@
     <label>Task Status</label>
     <required>false</required>
     <trackFeedHistory>false</trackFeedHistory>
-    <trackHistory>false</trackHistory>
+    <trackHistory>true</trackHistory>
     <trackTrending>false</trackTrending>
     <type>Picklist</type>
     <valueSet>
@@ -35,6 +35,11 @@
                 <fullName>Closed, not Completed</fullName>
                 <default>false</default>
                 <label>Closed, not Completed</label>
+            </value>
+            <value>
+                <fullName>Pended</fullName>
+                <default>false</default>
+                <label>Pended</label>
             </value>
         </valueSetDefinition>
     </valueSet>

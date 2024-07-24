@@ -163,12 +163,15 @@
     <externalSharingModel>ControlledByParent</externalSharingModel>
     <label>PMT Task</label>
     <nameField>
+        <encryptionScheme>None</encryptionScheme>
         <label>Task Name</label>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <type>Text</type>
     </nameField>
     <pluralLabel>PMT Tasks</pluralLabel>
+    <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
     <searchLayouts>
         <customTabListAdditionalFields>Phase__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Due_Date__c</customTabListAdditionalFields>

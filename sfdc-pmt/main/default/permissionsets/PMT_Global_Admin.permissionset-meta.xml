@@ -1211,6 +1211,10 @@
         <recordType>Case.PMT_Project</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <recordType>PMT_Project__c.Onboarding</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
     <tabSettings>
         <tab>PMT_Error_Log__c</tab>
         <visibility>Visible</visibility>
