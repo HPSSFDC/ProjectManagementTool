@@ -3,6 +3,8 @@
     <fullName>LEX_Project</fullName>
     <fields>Name</fields>
     <fields>Health_Icon__c</fields>
+    <fields>Project_Status__c</fields>
     <fields>IsTemplate__c</fields>
+    <fields>RecordTypeId</fields>
     <label>LEX Project</label>
 </CompactLayout>
