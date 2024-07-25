@@ -36,23 +36,109 @@
     <formFactors>Large</formFactors>
     <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
     <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
     <label>PMT</label>
     <navType>Standard</navType>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Application</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Contract</pageOrSobjectType>
+        <recordType>Contract.Payroll_Application</recordType>
+        <type>Flexipage</type>
+        <profile>System Administrator - Payroll</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Application</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Contract</pageOrSobjectType>
+        <recordType>Contract.Payroll_Application</recordType>
+        <type>Flexipage</type>
+        <profile>System Administrator - Payroll</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Application</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Contract</pageOrSobjectType>
+        <recordType>Contract.Payroll_Application</recordType>
+        <type>Flexipage</type>
+        <profile>Payroll Support</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Application</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Contract</pageOrSobjectType>
+        <recordType>Contract.Payroll_Application</recordType>
+        <type>Flexipage</type>
+        <profile>Payroll Support</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Application</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Contract</pageOrSobjectType>
+        <recordType>Contract.Payroll_Application</recordType>
+        <type>Flexipage</type>
+        <profile>Payroll Supervisor</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Application</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Contract</pageOrSobjectType>
+        <recordType>Contract.Payroll_Application</recordType>
+        <type>Flexipage</type>
+        <profile>Payroll Supervisor</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Application</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Contract</pageOrSobjectType>
+        <recordType>Contract.Payroll_Application</recordType>
+        <type>Flexipage</type>
+        <profile>Payroll Retention</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Application</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Contract</pageOrSobjectType>
+        <recordType>Contract.Payroll_Application</recordType>
+        <type>Flexipage</type>
+        <profile>Payroll Retention</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Application</content>
+        <formFactor>Small</formFactor>
+        <pageOrSobjectType>Contract</pageOrSobjectType>
+        <recordType>Contract.Payroll_Application</recordType>
+        <type>Flexipage</type>
+        <profile>Payroll Rep</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Application</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Contract</pageOrSobjectType>
+        <recordType>Contract.Payroll_Application</recordType>
+        <type>Flexipage</type>
+        <profile>Payroll Rep</profile>
+    </profileActionOverrides>
     <setupExperience>all</setupExperience>
     <tabs>PMT_Home</tabs>
     <tabs>PMT_Project__c</tabs>
     <tabs>PMT_Program__c</tabs>
-    <tabs>standard-Case</tabs>
     <tabs>PMT_Phase__c</tabs>
     <tabs>PMT_Task__c</tabs>
-    <tabs>Resource_Management</tabs>
-    <tabs>PMT_Resource_Availability__c</tabs>
-    <tabs>PMT_Resource_Allocation__c</tabs>
+    <tabs>standard-Contract</tabs>
+    <tabs>standard-Case</tabs>
     <tabs>standard-report</tabs>
-    <tabs>standard-Dashboard</tabs>
     <tabs>standard-Feed</tabs>
-    <tabs>standard-ProcessInstanceWorkitem</tabs>
-    <tabs>PMT_Error_Log__c</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>PMT_New_UtilityBar</utilityBar>
 </CustomApplication>

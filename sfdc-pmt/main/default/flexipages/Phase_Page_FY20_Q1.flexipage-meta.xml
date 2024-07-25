@@ -77,10 +77,7 @@
                     <name>actionNames</name>
                     <valueList>
                         <valueListItems>
-                            <value>MassChangeOwner</value>
-                        </valueListItems>
-                        <valueListItems>
-                            <value>PMT_Task__c.Complete_Task</value>
+                            <value>PMT_Task__c.Edit_Selected_Tasks</value>
                         </valueListItems>
                     </valueList>
                 </componentInstanceProperties>
