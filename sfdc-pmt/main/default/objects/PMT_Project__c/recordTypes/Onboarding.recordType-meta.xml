@@ -42,6 +42,37 @@
         </values>
     </picklistValues>
     <picklistValues>
+        <picklist>Previous_Project_Health__c</picklist>
+        <values>
+            <fullName>At Risk</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Closed%2C not Completed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Completed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Late</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not Started</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>On Hold</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>On Track</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
         <picklist>Processes_Impacted__c</picklist>
         <values>
             <fullName>Accruals</fullName>
@@ -128,6 +159,10 @@
         <values>
             <fullName>On Track</fullName>
             <default>true</default>
+        </values>
+        <values>
+            <fullName>Pended</fullName>
+            <default>false</default>
         </values>
     </picklistValues>
     <picklistValues>

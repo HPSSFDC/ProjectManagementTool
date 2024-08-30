@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <description>Sends an email using the &quot;PMT Project On Hold Alert&quot; template to the PMT Project&apos;s Account&apos;s SPA Lookup&apos;s Division Manager. (Say that fast 5 times).</description>
+        <name>Send_Email</name>
+        <label>Send Email</label>
+        <locationX>50</locationX>
+        <locationY>360</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>varRecipientList</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderType</name>
+            <value>
+                <stringValue>OrgWideEmailAddress</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderAddress</name>
+            <value>
+                <stringValue>donotreply@heartland.us</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <elementReference>varSubject</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>varBody</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>relatedRecordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>recipientId</name>
+            <value>
+                <elementReference>$Record.Application__r.Account.SPA__c</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <apiVersion>61.0</apiVersion>
+    <decisions>
+        <description>Checks if 7 days have passed since the Onboarding PMT Project was placed on hold.</description>
+        <name>On_Hold_for_7_Days</name>
+        <label>On Hold for 7 Days?</label>
+        <locationX>182</locationX>
+        <locationY>252</locationY>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Yes</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.RecordType.DeveloperName</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Onboarding</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Send_Email</targetReference>
+            </connector>
+            <label>Yes</label>
+        </rules>
+    </decisions>
+    <description>DO NOT USE. This flow will be repurposed to trigger on Cases instead.</description>
+    <environments>Default</environments>
+    <formulas>
+        <description>Calculates last week&apos;s date (Today - 7 Days)</description>
+        <name>DateLastWeek</name>
+        <dataType>Date</dataType>
+        <expression>{!$Flow.CurrentDate} - 7</expression>
+    </formulas>
+    <formulas>
+        <description>Calculates next week&apos;s date (Today + 7 Days)</description>
+        <name>DateNextWeek</name>
+        <dataType>Date</dataType>
+        <expression>{!$Flow.CurrentDate} + 7</expression>
+    </formulas>
+    <interviewLabel>PMT Project - Scheduled Email Alerts {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>PMT Project - Scheduled Email Alerts</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>56</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>On_Hold_for_7_Days</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Project_Health__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>On Hold</stringValue>
+            </value>
+        </filters>
+        <object>PMT_Project__c</object>
+        <schedule>
+            <frequency>Daily</frequency>
+            <startDate>2024-08-22</startDate>
+            <startTime>05:00:00.000Z</startTime>
+        </schedule>
+        <triggerType>Scheduled</triggerType>
+    </start>
+    <status>Draft</status>
+    <textTemplates>
+        <description>Contains the template for the email&apos;s body.</description>
+        <name>varBody</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;Hi {!$Record.Application__r.Account.SPA_Lookup__r.Full_Name__c},&lt;/p&gt;&lt;p&gt;We are at the halfway point of our 2 week pend period in which the above account will be deactivated on {!DateNextWeek}, since we have not received the required information to complete the account as previously requested.&amp;nbsp;Please see below for the list of outstanding required information.&lt;/p&gt;&lt;p&gt;Thank you,&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <description>Contains the email addresses of the SPA and their direct manager to insert as recipients.</description>
+        <name>varRecipientList</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>{!$Record.Application__r.Account.SPA_Lookup__r.Email}, {!$Record.Application__r.Account.SPA_Lookup__r.Division_Manager_Email__c}</text>
+    </textTemplates>
+    <variables>
+        <description>Contains the template for the email subject.</description>
+        <name>varSubject</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <stringValue>Account Pending Deactivation Warning - {!$Record.Application__r.Account.Name}</stringValue>
+        </value>
+    </variables>
+</Flow>

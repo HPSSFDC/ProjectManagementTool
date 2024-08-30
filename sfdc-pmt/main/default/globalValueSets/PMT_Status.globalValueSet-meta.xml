@@ -21,6 +21,11 @@
         <label>Late</label>
     </customValue>
     <customValue>
+        <fullName>Pended</fullName>
+        <default>false</default>
+        <label>Pended</label>
+    </customValue>
+    <customValue>
         <fullName>On Hold</fullName>
         <default>false</default>
         <label>On Hold</label>

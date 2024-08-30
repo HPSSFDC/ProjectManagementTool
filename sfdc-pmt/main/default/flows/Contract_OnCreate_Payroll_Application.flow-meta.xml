@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>60.0</apiVersion>
+    <description>On creation of a contract with a record type of &quot;Payroll Application&quot;, launch sub flow to create PMT project data and link to this contract</description>
+    <environments>Default</environments>
+    <interviewLabel>Contract OnCreate - Payroll Application {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Contract OnCreate - Payroll Application</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Create_Onboarding_Project</targetReference>
+        </connector>
+        <filterFormula>{!$Record.RecordType.Name}=&apos;Payroll Application&apos;</filterFormula>
+        <object>Contract</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <subflows>
+        <name>Create_Onboarding_Project</name>
+        <label>Create Onboarding Project</label>
+        <locationX>176</locationX>
+        <locationY>323</locationY>
+        <flowName>Create_Onboarding_Project</flowName>
+        <inputAssignments>
+            <name>recordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputAssignments>
+    </subflows>
+</Flow>
