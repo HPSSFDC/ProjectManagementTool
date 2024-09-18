@@ -2,26 +2,10 @@
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>60.0</apiVersion>
     <assignments>
-        <name>assignHasWagesPhaseName</name>
-        <label>Assign Phase Name</label>
-        <locationX>182</locationX>
-        <locationY>3950</locationY>
-        <assignmentItems>
-            <assignToReference>varPhaseName</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <stringValue>Has Wages</stringValue>
-            </value>
-        </assignmentItems>
-        <connector>
-            <targetReference>Records_Found_HasWages</targetReference>
-        </connector>
-    </assignments>
-    <assignments>
-        <name>assignHasWagesTaskVariables</name>
-        <label>Assign Has Wages Task Variables</label>
+        <name>Assign_Current_Quarter_Wage_Tax_Items_Variables</name>
+        <label>Assign Current Quarter Wage/Tax Items Variables</label>
         <locationX>138</locationX>
-        <locationY>4490</locationY>
+        <locationY>6386</locationY>
         <assignmentItems>
             <assignToReference>NewTask.Assigned_To1__c</assignToReference>
             <operator>Assign</operator>
@@ -33,7 +17,7 @@
             <assignToReference>NewTask.Description__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>Loop_Through_Has_Wages_Tasks.PMT_Task_Description__c</elementReference>
+                <elementReference>Loop_Through_Current_Quarter_Wage_Tax_Items_Tasks.PMT_Task_Description__c</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -47,7 +31,7 @@
             <assignToReference>NewTask.Phase__c</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>createPMTPhaseHasWages</elementReference>
+                <elementReference>Create_PMT_Phase_Current_Quarter_Wage_Tax_Items</elementReference>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -68,17 +52,232 @@
             <assignToReference>NewTask.Name</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>Loop_Through_Has_Wages_Tasks.PMT_Task_Name__c</elementReference>
+                <elementReference>Loop_Through_Current_Quarter_Wage_Tax_Items_Tasks.PMT_Task_Name__c</elementReference>
             </value>
         </assignmentItems>
         <connector>
-            <targetReference>assignToCollection4</targetReference>
+            <targetReference>Assign_to_Collection_Current_Quarter_Wage_Tax_Items</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Filed_Returns_in_Current_Year_Task_Variables</name>
+        <label>Assign Filed Returns in Current Year Task Variables</label>
+        <locationX>468</locationX>
+        <locationY>4490</locationY>
+        <assignmentItems>
+            <assignToReference>NewTask.Assigned_To1__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$User.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>NewTask.Description__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Loop_Through_Filed_Returns_in_Current_Year_Tasks.PMT_Task_Description__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>NewTask.Due_Date__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>TodayPlus7</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>NewTask.Phase__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Create_PMT_Phase_Filed_Returns_in_Current_Year</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>NewTask.RecordTypeId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>varPMTTaskRecordTypeId</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>NewTask.Start_Date__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Flow.CurrentDate</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>NewTask.Name</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Loop_Through_Filed_Returns_in_Current_Year_Tasks.PMT_Task_Name__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Assign_to_Collection_Filed_Returns_in_Current_Year</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Phase_Name_Current_Quarter_Wage_Tax_Items</name>
+        <label>Assign Phase Name Current Quarter Wage/Tax Items</label>
+        <locationX>182</locationX>
+        <locationY>5846</locationY>
+        <assignmentItems>
+            <assignToReference>varPhaseName</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Current Quarter Wage/Tax Items</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Current_Quarter_Wage_Tax_Items_Records_Found</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Phase_Name_Filed_Returns_in_Current_Year</name>
+        <label>Assign Phase Name Filed Returns in Current Year</label>
+        <locationX>611</locationX>
+        <locationY>3950</locationY>
+        <assignmentItems>
+            <assignToReference>varPhaseName</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Filed Returns in Current Year</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Filed_Returns_in_Current_Year_Records_Found</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Phase_Name_Prior_Quarter_Items</name>
+        <label>Assign Phase Name Prior Quarter Items</label>
+        <locationX>380</locationX>
+        <locationY>4898</locationY>
+        <assignmentItems>
+            <assignToReference>varPhaseName</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Prior Quarter Items</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Prior_Quarter_Items_Records_Found</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Prior_Quarter_Items_Variables</name>
+        <label>Assign Prior Quarter Items Variables</label>
+        <locationX>270</locationX>
+        <locationY>5438</locationY>
+        <assignmentItems>
+            <assignToReference>NewTask.Assigned_To1__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$User.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>NewTask.Description__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Loop_Through_Prior_Quarter_Items_Tasks.PMT_Task_Description__c</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>NewTask.Due_Date__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>TodayPlus7</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>NewTask.Phase__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Create_PMT_Phase_Prior_Quarter_Items</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>NewTask.RecordTypeId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>varPMTTaskRecordTypeId</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>NewTask.Start_Date__c</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Flow.CurrentDate</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>NewTask.Name</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Loop_Through_Prior_Quarter_Items_Tasks.PMT_Task_Name__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Assign_to_Collection_Prior_Quarter_Items</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Adds the updated task record variable to the TasksToCreate collection.</description>
+        <name>Assign_to_Collection_Current_Quarter_Wage_Tax_Items</name>
+        <label>Assign to Collection Current Quarter Wage/Tax Items</label>
+        <locationX>138</locationX>
+        <locationY>6494</locationY>
+        <assignmentItems>
+            <assignToReference>TasksToCreate</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>NewTask</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_Through_Current_Quarter_Wage_Tax_Items_Tasks</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Adds the updated task record variable to the TasksToCreate collection.</description>
+        <name>Assign_to_Collection_Filed_Returns_in_Current_Year</name>
+        <label>Assign to Collection Filed Returns in Current Year</label>
+        <locationX>468</locationX>
+        <locationY>4598</locationY>
+        <assignmentItems>
+            <assignToReference>TasksToCreate</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>NewTask</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_Through_Filed_Returns_in_Current_Year_Tasks</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Adds the updated task record variable to the TasksToCreate collection.</description>
+        <name>Assign_to_Collection_Prior_Quarter_Items</name>
+        <label>Assign to Collection Prior Quarter Items</label>
+        <locationX>270</locationX>
+        <locationY>5546</locationY>
+        <assignmentItems>
+            <assignToReference>TasksToCreate</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>NewTask</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_Through_Prior_Quarter_Items_Tasks</targetReference>
         </connector>
     </assignments>
     <assignments>
         <name>assignNoWagesPhaseName</name>
         <label>Assign Phase Name</label>
-        <locationX>798</locationX>
+        <locationX>1326</locationX>
         <locationY>3950</locationY>
         <assignmentItems>
             <assignToReference>varPhaseName</assignToReference>
@@ -94,7 +293,7 @@
     <assignments>
         <name>assignNoWagesTaskVariables</name>
         <label>Assign No Wages Task Variables</label>
-        <locationX>754</locationX>
+        <locationX>1282</locationX>
         <locationY>4490</locationY>
         <assignmentItems>
             <assignToReference>NewTask.Assigned_To1__c</assignToReference>
@@ -152,7 +351,7 @@
     <assignments>
         <name>assignPhase1Name</name>
         <label>Assign Phase 1 Name</label>
-        <locationX>1436</locationX>
+        <locationX>1957</locationX>
         <locationY>998</locationY>
         <assignmentItems>
             <assignToReference>varPhaseName</assignToReference>
@@ -168,7 +367,7 @@
     <assignments>
         <name>assignPhase1TaskVariables</name>
         <label>Assign Phase 1 Task Variables</label>
-        <locationX>1238</locationX>
+        <locationX>1753</locationX>
         <locationY>1538</locationY>
         <assignmentItems>
             <assignToReference>NewTask.Assigned_To1__c</assignToReference>
@@ -226,7 +425,7 @@
     <assignments>
         <name>assignPhase2Name</name>
         <label>Assign Phase 2 Name</label>
-        <locationX>1150</locationX>
+        <locationX>1665</locationX>
         <locationY>1946</locationY>
         <assignmentItems>
             <assignToReference>varPhaseName</assignToReference>
@@ -242,7 +441,7 @@
     <assignments>
         <name>assignPhase2TaskVariables</name>
         <label>Assign Phase 2 Task Variables</label>
-        <locationX>930</locationX>
+        <locationX>1433</locationX>
         <locationY>2486</locationY>
         <assignmentItems>
             <assignToReference>NewTask.Assigned_To1__c</assignToReference>
@@ -300,7 +499,7 @@
     <assignments>
         <name>assignPhase3Name</name>
         <label>Assign Phase 3 Name</label>
-        <locationX>842</locationX>
+        <locationX>1345</locationX>
         <locationY>2894</locationY>
         <assignmentItems>
             <assignToReference>varPhaseName</assignToReference>
@@ -316,7 +515,7 @@
     <assignments>
         <name>assignPhase3TaskVariables</name>
         <label>Assign Phase 3 Task Variables</label>
-        <locationX>578</locationX>
+        <locationX>1056</locationX>
         <locationY>3434</locationY>
         <assignmentItems>
             <assignToReference>NewTask.Assigned_To1__c</assignToReference>
@@ -375,7 +574,7 @@
         <description>Adds the updated task record variable to the TasksToCreate collection.</description>
         <name>assignToCollection</name>
         <label>Assign to Collection</label>
-        <locationX>1238</locationX>
+        <locationX>1753</locationX>
         <locationY>1646</locationY>
         <assignmentItems>
             <assignToReference>TasksToCreate</assignToReference>
@@ -392,7 +591,7 @@
         <description>Adds the updated task record variable to the TasksToCreate collection.</description>
         <name>assignToCollection2</name>
         <label>Assign to Collection</label>
-        <locationX>930</locationX>
+        <locationX>1433</locationX>
         <locationY>2594</locationY>
         <assignmentItems>
             <assignToReference>TasksToCreate</assignToReference>
@@ -409,7 +608,7 @@
         <description>Adds the updated task record variable to the TasksToCreate collection.</description>
         <name>assignToCollection3</name>
         <label>Assign to Collection</label>
-        <locationX>578</locationX>
+        <locationX>1056</locationX>
         <locationY>3542</locationY>
         <assignmentItems>
             <assignToReference>TasksToCreate</assignToReference>
@@ -424,26 +623,9 @@
     </assignments>
     <assignments>
         <description>Adds the updated task record variable to the TasksToCreate collection.</description>
-        <name>assignToCollection4</name>
-        <label>Assign to Collection</label>
-        <locationX>138</locationX>
-        <locationY>4598</locationY>
-        <assignmentItems>
-            <assignToReference>TasksToCreate</assignToReference>
-            <operator>Add</operator>
-            <value>
-                <elementReference>NewTask</elementReference>
-            </value>
-        </assignmentItems>
-        <connector>
-            <targetReference>Loop_Through_Has_Wages_Tasks</targetReference>
-        </connector>
-    </assignments>
-    <assignments>
-        <description>Adds the updated task record variable to the TasksToCreate collection.</description>
         <name>assignToCollection5</name>
         <label>Assign to Collection</label>
-        <locationX>754</locationX>
+        <locationX>1282</locationX>
         <locationY>4598</locationY>
         <assignmentItems>
             <assignToReference>TasksToCreate</assignToReference>
@@ -457,18 +639,96 @@
         </connector>
     </assignments>
     <collectionProcessors>
+        <description>These are coming from the custom metadata and the &quot;Has Wages&quot; fields are phase orders 4, 5, and 6. Filter &quot;Has Wages&quot; records from the NCS Onboarding Templates collection. 
+
+Filed Returns in Current Year = 4
+Prior Quarter Items = 5
+Current Quarter Wage/Tax Items = 6</description>
+        <name>Filter_Collection_Current_Quarter_Wage_Tax_Items</name>
+        <elementSubtype>FilterCollectionProcessor</elementSubtype>
+        <label>Filter Collection - Current Quarter Wage/Tax Items</label>
+        <locationX>182</locationX>
+        <locationY>5738</locationY>
+        <assignNextValueToReference>currentItem_Filter_Collection_Current_Quarter_Wage_Tax_Items</assignNextValueToReference>
+        <collectionProcessorType>FilterCollectionProcessor</collectionProcessorType>
+        <collectionReference>getNCSOnboardingTemplates</collectionReference>
+        <conditionLogic>or</conditionLogic>
+        <conditions>
+            <leftValueReference>currentItem_Filter_Collection_Current_Quarter_Wage_Tax_Items.PMT_Phase_Order__c</leftValueReference>
+            <operator>EqualTo</operator>
+            <rightValue>
+                <numberValue>6.0</numberValue>
+            </rightValue>
+        </conditions>
+        <connector>
+            <targetReference>Assign_Phase_Name_Current_Quarter_Wage_Tax_Items</targetReference>
+        </connector>
+    </collectionProcessors>
+    <collectionProcessors>
+        <description>These are coming from the custom metadata and the &quot;Has Wages&quot; fields are phase orders 4, 5, and 6. Filter &quot;Has Wages&quot; records from the NCS Onboarding Templates collection. 
+
+Filed Returns in Current Year = 4
+Prior Quarter Items = 5
+Current Quarter Wage/Tax Items = 6</description>
+        <name>Filter_Collection_Filed_Returns_in_Current_Year</name>
+        <elementSubtype>FilterCollectionProcessor</elementSubtype>
+        <label>Filter Collection - Filed Returns in Current Year</label>
+        <locationX>611</locationX>
+        <locationY>3842</locationY>
+        <assignNextValueToReference>currentItem_Filter_Collection_Current_Quarter_Wage_Tax_Items</assignNextValueToReference>
+        <collectionProcessorType>FilterCollectionProcessor</collectionProcessorType>
+        <collectionReference>getNCSOnboardingTemplates</collectionReference>
+        <conditionLogic>or</conditionLogic>
+        <conditions>
+            <leftValueReference>currentItem_Filter_Collection_Current_Quarter_Wage_Tax_Items.PMT_Phase_Order__c</leftValueReference>
+            <operator>EqualTo</operator>
+            <rightValue>
+                <numberValue>4.0</numberValue>
+            </rightValue>
+        </conditions>
+        <connector>
+            <targetReference>Assign_Phase_Name_Filed_Returns_in_Current_Year</targetReference>
+        </connector>
+    </collectionProcessors>
+    <collectionProcessors>
+        <description>These are coming from the custom metadata and the &quot;Has Wages&quot; fields are phase orders 4, 5, and 6. Filter &quot;Has Wages&quot; records from the NCS Onboarding Templates collection. 
+
+Filed Returns in Current Year = 4
+Prior Quarter Items = 5
+Current Quarter Wage/Tax Items = 6</description>
+        <name>Filter_Collection_Prior_Quarter_Items</name>
+        <elementSubtype>FilterCollectionProcessor</elementSubtype>
+        <label>Filter Collection - Prior Quarter Items</label>
+        <locationX>380</locationX>
+        <locationY>4790</locationY>
+        <assignNextValueToReference>currentItem_Filter_Collection_Current_Quarter_Wage_Tax_Items</assignNextValueToReference>
+        <collectionProcessorType>FilterCollectionProcessor</collectionProcessorType>
+        <collectionReference>getNCSOnboardingTemplates</collectionReference>
+        <conditionLogic>or</conditionLogic>
+        <conditions>
+            <leftValueReference>currentItem_Filter_Collection_Current_Quarter_Wage_Tax_Items.PMT_Phase_Order__c</leftValueReference>
+            <operator>EqualTo</operator>
+            <rightValue>
+                <numberValue>5.0</numberValue>
+            </rightValue>
+        </conditions>
+        <connector>
+            <targetReference>Assign_Phase_Name_Prior_Quarter_Items</targetReference>
+        </connector>
+    </collectionProcessors>
+    <collectionProcessors>
         <description>Filter Phase 1 records from the NCS Onboarding Templates collection.</description>
         <name>filterCollectionPhase1</name>
         <elementSubtype>FilterCollectionProcessor</elementSubtype>
         <label>Filter Collection - Phase 1</label>
-        <locationX>1436</locationX>
+        <locationX>1957</locationX>
         <locationY>890</locationY>
-        <assignNextValueToReference>currentItem_filterCollectionPhase4</assignNextValueToReference>
+        <assignNextValueToReference>currentItem_Filter_Collection_Current_Quarter_Wage_Tax_Items</assignNextValueToReference>
         <collectionProcessorType>FilterCollectionProcessor</collectionProcessorType>
         <collectionReference>getNCSOnboardingTemplates</collectionReference>
         <conditionLogic>and</conditionLogic>
         <conditions>
-            <leftValueReference>currentItem_filterCollectionPhase4.PMT_Phase_Order__c</leftValueReference>
+            <leftValueReference>currentItem_Filter_Collection_Current_Quarter_Wage_Tax_Items.PMT_Phase_Order__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <numberValue>1.0</numberValue>
@@ -483,14 +743,14 @@
         <name>filterCollectionPhase2</name>
         <elementSubtype>FilterCollectionProcessor</elementSubtype>
         <label>Filter Collection - Phase 2</label>
-        <locationX>1150</locationX>
+        <locationX>1665</locationX>
         <locationY>1838</locationY>
-        <assignNextValueToReference>currentItem_filterCollectionPhase4</assignNextValueToReference>
+        <assignNextValueToReference>currentItem_Filter_Collection_Current_Quarter_Wage_Tax_Items</assignNextValueToReference>
         <collectionProcessorType>FilterCollectionProcessor</collectionProcessorType>
         <collectionReference>getNCSOnboardingTemplates</collectionReference>
         <conditionLogic>and</conditionLogic>
         <conditions>
-            <leftValueReference>currentItem_filterCollectionPhase4.PMT_Phase_Order__c</leftValueReference>
+            <leftValueReference>currentItem_Filter_Collection_Current_Quarter_Wage_Tax_Items.PMT_Phase_Order__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <numberValue>2.0</numberValue>
@@ -505,14 +765,14 @@
         <name>filterCollectionPhase3</name>
         <elementSubtype>FilterCollectionProcessor</elementSubtype>
         <label>Filter Collection - Phase 3</label>
-        <locationX>842</locationX>
+        <locationX>1345</locationX>
         <locationY>2786</locationY>
-        <assignNextValueToReference>currentItem_filterCollectionPhase4</assignNextValueToReference>
+        <assignNextValueToReference>currentItem_Filter_Collection_Current_Quarter_Wage_Tax_Items</assignNextValueToReference>
         <collectionProcessorType>FilterCollectionProcessor</collectionProcessorType>
         <collectionReference>getNCSOnboardingTemplates</collectionReference>
         <conditionLogic>and</conditionLogic>
         <conditions>
-            <leftValueReference>currentItem_filterCollectionPhase4.PMT_Phase_Order__c</leftValueReference>
+            <leftValueReference>currentItem_Filter_Collection_Current_Quarter_Wage_Tax_Items.PMT_Phase_Order__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
                 <numberValue>3.0</numberValue>
@@ -523,43 +783,21 @@
         </connector>
     </collectionProcessors>
     <collectionProcessors>
-        <description>Filter &quot;Has Wages&quot; records from the NCS Onboarding Templates collection.</description>
-        <name>filterCollectionPhase4</name>
-        <elementSubtype>FilterCollectionProcessor</elementSubtype>
-        <label>Filter Collection - Has Wages</label>
-        <locationX>182</locationX>
-        <locationY>3842</locationY>
-        <assignNextValueToReference>currentItem_filterCollectionPhase4</assignNextValueToReference>
-        <collectionProcessorType>FilterCollectionProcessor</collectionProcessorType>
-        <collectionReference>getNCSOnboardingTemplates</collectionReference>
-        <conditionLogic>and</conditionLogic>
-        <conditions>
-            <leftValueReference>currentItem_filterCollectionPhase4.PMT_Phase_Order__c</leftValueReference>
-            <operator>EqualTo</operator>
-            <rightValue>
-                <numberValue>4.0</numberValue>
-            </rightValue>
-        </conditions>
-        <connector>
-            <targetReference>assignHasWagesPhaseName</targetReference>
-        </connector>
-    </collectionProcessors>
-    <collectionProcessors>
         <description>Filter &quot;No Wages&quot; records from the NCS Onboarding Templates collection.</description>
         <name>filterCollectionPhase5</name>
         <elementSubtype>FilterCollectionProcessor</elementSubtype>
         <label>Filter Collection - No Wages</label>
-        <locationX>798</locationX>
+        <locationX>1326</locationX>
         <locationY>3842</locationY>
-        <assignNextValueToReference>currentItem_filterCollectionPhase4</assignNextValueToReference>
+        <assignNextValueToReference>currentItem_Filter_Collection_Current_Quarter_Wage_Tax_Items</assignNextValueToReference>
         <collectionProcessorType>FilterCollectionProcessor</collectionProcessorType>
         <collectionReference>getNCSOnboardingTemplates</collectionReference>
         <conditionLogic>and</conditionLogic>
         <conditions>
-            <leftValueReference>currentItem_filterCollectionPhase4.PMT_Phase_Order__c</leftValueReference>
+            <leftValueReference>currentItem_Filter_Collection_Current_Quarter_Wage_Tax_Items.PMT_Phase_Order__c</leftValueReference>
             <operator>EqualTo</operator>
             <rightValue>
-                <numberValue>5.0</numberValue>
+                <numberValue>7.0</numberValue>
             </rightValue>
         </conditions>
         <connector>
@@ -568,10 +806,64 @@
     </collectionProcessors>
     <collectionProcessors>
         <description>Sorts the filtered records by PMT Task Order.</description>
+        <name>Sort_Collection_Current_Quarter_Wage_Tax_Items</name>
+        <elementSubtype>SortCollectionProcessor</elementSubtype>
+        <label>Sort Collection - Current Quarter Wage/Tax Items</label>
+        <locationX>50</locationX>
+        <locationY>6170</locationY>
+        <collectionProcessorType>SortCollectionProcessor</collectionProcessorType>
+        <collectionReference>Filter_Collection_Current_Quarter_Wage_Tax_Items</collectionReference>
+        <connector>
+            <targetReference>Loop_Through_Current_Quarter_Wage_Tax_Items_Tasks</targetReference>
+        </connector>
+        <sortOptions>
+            <doesPutEmptyStringAndNullFirst>false</doesPutEmptyStringAndNullFirst>
+            <sortField>PMT_Task_Order__c</sortField>
+            <sortOrder>Asc</sortOrder>
+        </sortOptions>
+    </collectionProcessors>
+    <collectionProcessors>
+        <description>Sorts the filtered records by PMT Task Order.</description>
+        <name>Sort_Collection_Filed_Returns_in_Current_Year</name>
+        <elementSubtype>SortCollectionProcessor</elementSubtype>
+        <label>Sort Collection - Filed Returns in Current Year</label>
+        <locationX>380</locationX>
+        <locationY>4274</locationY>
+        <collectionProcessorType>SortCollectionProcessor</collectionProcessorType>
+        <collectionReference>Filter_Collection_Filed_Returns_in_Current_Year</collectionReference>
+        <connector>
+            <targetReference>Loop_Through_Filed_Returns_in_Current_Year_Tasks</targetReference>
+        </connector>
+        <sortOptions>
+            <doesPutEmptyStringAndNullFirst>false</doesPutEmptyStringAndNullFirst>
+            <sortField>PMT_Task_Order__c</sortField>
+            <sortOrder>Asc</sortOrder>
+        </sortOptions>
+    </collectionProcessors>
+    <collectionProcessors>
+        <description>Sorts the filtered records by PMT Task Order.</description>
+        <name>Sort_Collection_Prior_Quarter_Items</name>
+        <elementSubtype>SortCollectionProcessor</elementSubtype>
+        <label>Sort Collection - Prior Quarter Items</label>
+        <locationX>182</locationX>
+        <locationY>5222</locationY>
+        <collectionProcessorType>SortCollectionProcessor</collectionProcessorType>
+        <collectionReference>Filter_Collection_Prior_Quarter_Items</collectionReference>
+        <connector>
+            <targetReference>Loop_Through_Prior_Quarter_Items_Tasks</targetReference>
+        </connector>
+        <sortOptions>
+            <doesPutEmptyStringAndNullFirst>false</doesPutEmptyStringAndNullFirst>
+            <sortField>PMT_Task_Order__c</sortField>
+            <sortOrder>Asc</sortOrder>
+        </sortOptions>
+    </collectionProcessors>
+    <collectionProcessors>
+        <description>Sorts the filtered records by PMT Task Order.</description>
         <name>sortCollectionPhase1</name>
         <elementSubtype>SortCollectionProcessor</elementSubtype>
         <label>Sort Collection - Phase 1</label>
-        <locationX>1150</locationX>
+        <locationX>1665</locationX>
         <locationY>1322</locationY>
         <collectionProcessorType>SortCollectionProcessor</collectionProcessorType>
         <collectionReference>filterCollectionPhase1</collectionReference>
@@ -589,7 +881,7 @@
         <name>sortCollectionPhase2</name>
         <elementSubtype>SortCollectionProcessor</elementSubtype>
         <label>Sort Collection - Phase 2</label>
-        <locationX>842</locationX>
+        <locationX>1345</locationX>
         <locationY>2270</locationY>
         <collectionProcessorType>SortCollectionProcessor</collectionProcessorType>
         <collectionReference>filterCollectionPhase2</collectionReference>
@@ -607,7 +899,7 @@
         <name>sortCollectionPhase3</name>
         <elementSubtype>SortCollectionProcessor</elementSubtype>
         <label>Sort Collection - Phase 3</label>
-        <locationX>490</locationX>
+        <locationX>968</locationX>
         <locationY>3218</locationY>
         <collectionProcessorType>SortCollectionProcessor</collectionProcessorType>
         <collectionReference>filterCollectionPhase3</collectionReference>
@@ -622,28 +914,10 @@
     </collectionProcessors>
     <collectionProcessors>
         <description>Sorts the filtered records by PMT Task Order.</description>
-        <name>sortCollectionPhase4</name>
-        <elementSubtype>SortCollectionProcessor</elementSubtype>
-        <label>Sort Collection - Has Wages</label>
-        <locationX>50</locationX>
-        <locationY>4274</locationY>
-        <collectionProcessorType>SortCollectionProcessor</collectionProcessorType>
-        <collectionReference>filterCollectionPhase4</collectionReference>
-        <connector>
-            <targetReference>Loop_Through_Has_Wages_Tasks</targetReference>
-        </connector>
-        <sortOptions>
-            <doesPutEmptyStringAndNullFirst>false</doesPutEmptyStringAndNullFirst>
-            <sortField>PMT_Task_Order__c</sortField>
-            <sortOrder>Asc</sortOrder>
-        </sortOptions>
-    </collectionProcessors>
-    <collectionProcessors>
-        <description>Sorts the filtered records by PMT Task Order.</description>
         <name>sortCollectionPhase5</name>
         <elementSubtype>SortCollectionProcessor</elementSubtype>
         <label>Sort Collection - No Wages</label>
-        <locationX>666</locationX>
+        <locationX>1194</locationX>
         <locationY>4274</locationY>
         <collectionProcessorType>SortCollectionProcessor</collectionProcessorType>
         <collectionReference>filterCollectionPhase5</collectionReference>
@@ -657,17 +931,67 @@
         </sortOptions>
     </collectionProcessors>
     <decisions>
+        <name>Current_Quarter_Wage_Tax_Items_Records_Found</name>
+        <label>Current Quarter Wage/Tax Items Records Found?</label>
+        <locationX>182</locationX>
+        <locationY>5954</locationY>
+        <defaultConnector>
+            <targetReference>Current_Quarter_Wage_Tax_Items_Update_Contract_Application</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Current_Quarter_Wage_Tax_Items_found</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Filter_Collection_Current_Quarter_Wage_Tax_Items</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Create_PMT_Phase_Current_Quarter_Wage_Tax_Items</targetReference>
+            </connector>
+            <label>Yes Current Quarter Wage/Tax Items found</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Filed_Returns_in_Current_Year_Records_Found</name>
+        <label>Filed Returns in Current Year Records Found?</label>
+        <locationX>611</locationX>
+        <locationY>4058</locationY>
+        <defaultConnector>
+            <targetReference>Filed_Returns_in_Current_Year_Update_Contract_Application</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No</defaultConnectorLabel>
+        <rules>
+            <name>Yes_Filed_Returns_in_Current_Year_records_Found</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Filter_Collection_Filed_Returns_in_Current_Year</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Create_PMT_Phase_Filed_Returns_in_Current_Year</targetReference>
+            </connector>
+            <label>Yes Filed Returns in Current Year records Found</label>
+        </rules>
+    </decisions>
+    <decisions>
         <description>Checks if the triggering Contract (Payroll Application) &quot;Has Wages&quot; checkbox is checked or not.</description>
         <name>Has_Wages</name>
         <label>Has Wages?</label>
-        <locationX>490</locationX>
+        <locationX>968</locationX>
         <locationY>3734</locationY>
         <defaultConnector>
             <targetReference>filterCollectionPhase5</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>No</defaultConnectorLabel>
         <rules>
-            <name>Yes_Wages</name>
+            <name>Yes_Has_Wages</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
                 <leftValueReference>getContract.Has_Wages__c</leftValueReference>
@@ -677,16 +1001,16 @@
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>filterCollectionPhase4</targetReference>
+                <targetReference>Filter_Collection_Filed_Returns_in_Current_Year</targetReference>
             </connector>
-            <label>Yes</label>
+            <label>Yes Has Wages</label>
         </rules>
     </decisions>
     <decisions>
         <description>Checks if at least one record was found.</description>
         <name>NCS_Onboarding_Template_Records_Found</name>
         <label>NCS Onboarding Template Records Found?</label>
-        <locationX>1711</locationX>
+        <locationX>2235</locationX>
         <locationY>458</locationY>
         <defaultConnector>
             <targetReference>updateContract_NoTemplatesFound</targetReference>
@@ -711,7 +1035,7 @@
     <decisions>
         <name>Phase_1_Task_Templates_Found</name>
         <label>Phase 1 Task Templates Found?</label>
-        <locationX>1436</locationX>
+        <locationX>1957</locationX>
         <locationY>1106</locationY>
         <defaultConnector>
             <targetReference>updateContract_NoPhase1Found</targetReference>
@@ -736,7 +1060,7 @@
     <decisions>
         <name>Phase_2_Task_Templates_Found</name>
         <label>Phase 2 Task Templates Found?</label>
-        <locationX>1150</locationX>
+        <locationX>1665</locationX>
         <locationY>2054</locationY>
         <defaultConnector>
             <targetReference>updateContract_NoPhase2Found</targetReference>
@@ -761,7 +1085,7 @@
     <decisions>
         <name>Phase_3_Task_Templates_Found</name>
         <label>Phase 3 Task Templates Found?</label>
-        <locationX>842</locationX>
+        <locationX>1345</locationX>
         <locationY>3002</locationY>
         <defaultConnector>
             <targetReference>updateContract_NoPhase3Found</targetReference>
@@ -784,34 +1108,34 @@
         </rules>
     </decisions>
     <decisions>
-        <name>Records_Found_HasWages</name>
-        <label>Records Found?</label>
-        <locationX>182</locationX>
-        <locationY>4058</locationY>
+        <name>Prior_Quarter_Items_Records_Found</name>
+        <label>Prior Quarter Items Records Found?</label>
+        <locationX>380</locationX>
+        <locationY>5006</locationY>
         <defaultConnector>
-            <targetReference>updateContract_NoPhase4Found</targetReference>
+            <targetReference>Prior_Quarter_Items_Update_Contract_Application</targetReference>
         </defaultConnector>
         <defaultConnectorLabel>No</defaultConnectorLabel>
         <rules>
-            <name>Yes_HasWagesRecords</name>
+            <name>Yes_Prior_Quarter_Items_found</name>
             <conditionLogic>and</conditionLogic>
             <conditions>
-                <leftValueReference>filterCollectionPhase4</leftValueReference>
+                <leftValueReference>Filter_Collection_Prior_Quarter_Items</leftValueReference>
                 <operator>IsNull</operator>
                 <rightValue>
                     <booleanValue>false</booleanValue>
                 </rightValue>
             </conditions>
             <connector>
-                <targetReference>createPMTPhaseHasWages</targetReference>
+                <targetReference>Create_PMT_Phase_Prior_Quarter_Items</targetReference>
             </connector>
-            <label>Yes</label>
+            <label>Yes Prior Quarter Items found</label>
         </rules>
     </decisions>
     <decisions>
         <name>Records_Found_NoWages</name>
         <label>Records Found?</label>
-        <locationX>798</locationX>
+        <locationX>1326</locationX>
         <locationY>4058</locationY>
         <defaultConnector>
             <targetReference>updateContract_NoPhase5Found</targetReference>
@@ -843,25 +1167,40 @@
     <interviewLabel>Create Onboarding Project {!$Flow.CurrentDateTime}</interviewLabel>
     <label>Create Onboarding Project</label>
     <loops>
-        <description>Loops through the filtered record collection for the Has Wages phase.</description>
-        <name>Loop_Through_Has_Wages_Tasks</name>
-        <label>Loop Through Has Wages Tasks</label>
+        <description>Loops through the filtered record collection for the Current Quarter Wage/Tax Items phase.</description>
+        <name>Loop_Through_Current_Quarter_Wage_Tax_Items_Tasks</name>
+        <label>Loop Through Current Quarter Wage/Tax Items Tasks</label>
         <locationX>50</locationX>
-        <locationY>4382</locationY>
-        <collectionReference>filterCollectionPhase4</collectionReference>
-        <iterationOrder>Asc</iterationOrder>
+        <locationY>6278</locationY>
+        <collectionReference>Filter_Collection_Current_Quarter_Wage_Tax_Items</collectionReference>
+        <iterationOrder>Desc</iterationOrder>
         <nextValueConnector>
-            <targetReference>assignHasWagesTaskVariables</targetReference>
+            <targetReference>Assign_Current_Quarter_Wage_Tax_Items_Variables</targetReference>
         </nextValueConnector>
         <noMoreValuesConnector>
             <targetReference>createTasks</targetReference>
         </noMoreValuesConnector>
     </loops>
     <loops>
+        <description>Loops through the filtered record collection for the Filed Returns in Current Year phase.</description>
+        <name>Loop_Through_Filed_Returns_in_Current_Year_Tasks</name>
+        <label>Loop Through Filed Returns in Current Year Tasks</label>
+        <locationX>380</locationX>
+        <locationY>4382</locationY>
+        <collectionReference>Filter_Collection_Filed_Returns_in_Current_Year</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Assign_Filed_Returns_in_Current_Year_Task_Variables</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Filter_Collection_Prior_Quarter_Items</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <loops>
         <description>Loops through the filtered record collection for the &quot;No Wages&quot; phase.</description>
         <name>Loop_Through_No_Wages_Tasks</name>
         <label>Loop Through No Wages Tasks</label>
-        <locationX>666</locationX>
+        <locationX>1194</locationX>
         <locationY>4382</locationY>
         <collectionReference>filterCollectionPhase5</collectionReference>
         <iterationOrder>Asc</iterationOrder>
@@ -876,7 +1215,7 @@
         <description>Loops through the filtered record collection for Phase 1.</description>
         <name>Loop_Through_Phase_1_Tasks</name>
         <label>Loop Through Phase 1 Tasks</label>
-        <locationX>1150</locationX>
+        <locationX>1665</locationX>
         <locationY>1430</locationY>
         <collectionReference>filterCollectionPhase1</collectionReference>
         <iterationOrder>Asc</iterationOrder>
@@ -891,7 +1230,7 @@
         <description>Loops through the filtered record collection for Phase 2.</description>
         <name>Loop_Through_Phase_2_Tasks</name>
         <label>Loop Through Phase 2 Tasks</label>
-        <locationX>842</locationX>
+        <locationX>1345</locationX>
         <locationY>2378</locationY>
         <collectionReference>filterCollectionPhase2</collectionReference>
         <iterationOrder>Asc</iterationOrder>
@@ -906,7 +1245,7 @@
         <description>Loops through the filtered record collection for Phase 3.</description>
         <name>Loop_Through_Phase_3_Tasks</name>
         <label>Loop Through Phase 3 Tasks</label>
-        <locationX>490</locationX>
+        <locationX>968</locationX>
         <locationY>3326</locationY>
         <collectionReference>filterCollectionPhase3</collectionReference>
         <iterationOrder>Asc</iterationOrder>
@@ -915,6 +1254,21 @@
         </nextValueConnector>
         <noMoreValuesConnector>
             <targetReference>Has_Wages</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <loops>
+        <description>Loops through the filtered record collection for the Prior Quarter Items phase.</description>
+        <name>Loop_Through_Prior_Quarter_Items_Tasks</name>
+        <label>Loop Through Prior Quarter Items Tasks</label>
+        <locationX>182</locationX>
+        <locationY>5330</locationY>
+        <collectionReference>Filter_Collection_Prior_Quarter_Items</collectionReference>
+        <iterationOrder>Desc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Assign_Prior_Quarter_Items_Variables</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Filter_Collection_Current_Quarter_Wage_Tax_Items</targetReference>
         </noMoreValuesConnector>
     </loops>
     <processMetadataValues>
@@ -937,10 +1291,82 @@
     </processMetadataValues>
     <processType>AutoLaunchedFlow</processType>
     <recordCreates>
+        <description>Creates a &quot;Current Quarter Wage/Tax Items&quot; Phase record associated to the PMT Project.</description>
+        <name>Create_PMT_Phase_Current_Quarter_Wage_Tax_Items</name>
+        <label>Create PMT Phase - Current Quarter Wage/Tax Items</label>
+        <locationX>50</locationX>
+        <locationY>6062</locationY>
+        <connector>
+            <targetReference>Sort_Collection_Current_Quarter_Wage_Tax_Items</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <elementReference>varPhaseNameTemplate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Project__c</field>
+            <value>
+                <elementReference>createPMTProject</elementReference>
+            </value>
+        </inputAssignments>
+        <object>PMT_Phase__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <description>Creates a &quot;Has Wages&quot; Phase record associated to the PMT Project.</description>
+        <name>Create_PMT_Phase_Filed_Returns_in_Current_Year</name>
+        <label>Create PMT Phase - Filed Returns in Current Year</label>
+        <locationX>380</locationX>
+        <locationY>4166</locationY>
+        <connector>
+            <targetReference>Sort_Collection_Filed_Returns_in_Current_Year</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <elementReference>varPhaseNameTemplate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Project__c</field>
+            <value>
+                <elementReference>createPMTProject</elementReference>
+            </value>
+        </inputAssignments>
+        <object>PMT_Phase__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <description>Creates a &quot;Prior Quarter Items&quot; Phase record associated to the PMT Project.</description>
+        <name>Create_PMT_Phase_Prior_Quarter_Items</name>
+        <label>Create PMT Phase - Prior Quarter Items</label>
+        <locationX>182</locationX>
+        <locationY>5114</locationY>
+        <connector>
+            <targetReference>Sort_Collection_Prior_Quarter_Items</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <elementReference>varPhaseNameTemplate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Project__c</field>
+            <value>
+                <elementReference>createPMTProject</elementReference>
+            </value>
+        </inputAssignments>
+        <object>PMT_Phase__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
         <description>Creates a Phase 1 record associated to the PMT Project.</description>
         <name>createPMTPhase1</name>
         <label>Create PMT Phase 1</label>
-        <locationX>1150</locationX>
+        <locationX>1665</locationX>
         <locationY>1214</locationY>
         <connector>
             <targetReference>sortCollectionPhase1</targetReference>
@@ -964,7 +1390,7 @@
         <description>Creates a Phase 2 record associated to the PMT Project.</description>
         <name>createPMTPhase2</name>
         <label>Create PMT Phase 2</label>
-        <locationX>842</locationX>
+        <locationX>1345</locationX>
         <locationY>2162</locationY>
         <connector>
             <targetReference>sortCollectionPhase2</targetReference>
@@ -988,7 +1414,7 @@
         <description>Creates a Phase 3 record associated to the PMT Project.</description>
         <name>createPMTPhase3</name>
         <label>Create PMT Phase 3</label>
-        <locationX>490</locationX>
+        <locationX>968</locationX>
         <locationY>3110</locationY>
         <connector>
             <targetReference>sortCollectionPhase3</targetReference>
@@ -1009,34 +1435,10 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordCreates>
     <recordCreates>
-        <description>Creates a &quot;Has Wages&quot; Phase record associated to the PMT Project.</description>
-        <name>createPMTPhaseHasWages</name>
-        <label>Create PMT Phase - Has Wages</label>
-        <locationX>50</locationX>
-        <locationY>4166</locationY>
-        <connector>
-            <targetReference>sortCollectionPhase4</targetReference>
-        </connector>
-        <inputAssignments>
-            <field>Name</field>
-            <value>
-                <elementReference>varPhaseNameTemplate</elementReference>
-            </value>
-        </inputAssignments>
-        <inputAssignments>
-            <field>Project__c</field>
-            <value>
-                <elementReference>createPMTProject</elementReference>
-            </value>
-        </inputAssignments>
-        <object>PMT_Phase__c</object>
-        <storeOutputAutomatically>true</storeOutputAutomatically>
-    </recordCreates>
-    <recordCreates>
         <description>Creates a &quot;No Wages&quot; Phase record associated to the PMT Project.</description>
         <name>createPMTPhaseNoWages</name>
         <label>Create PMT Phase - No Wages</label>
-        <locationX>666</locationX>
+        <locationX>1194</locationX>
         <locationY>4166</locationY>
         <connector>
             <targetReference>sortCollectionPhase5</targetReference>
@@ -1060,7 +1462,7 @@
         <description>Creates a PMT Program record and links it to the Payroll Application (Contract).</description>
         <name>createPMTProgram</name>
         <label>Create PMT Program</label>
-        <locationX>1711</locationX>
+        <locationX>2235</locationX>
         <locationY>242</locationY>
         <connector>
             <targetReference>getNCSOnboardingTemplates</targetReference>
@@ -1084,7 +1486,7 @@
         <description>Creates a PMT Project Record with predefined values.</description>
         <name>createPMTProject</name>
         <label>Create PMT Project</label>
-        <locationX>1436</locationX>
+        <locationX>1957</locationX>
         <locationY>782</locationY>
         <connector>
             <targetReference>filterCollectionPhase1</targetReference>
@@ -1131,15 +1533,15 @@
     <recordCreates>
         <name>createTasks</name>
         <label>Create Tasks</label>
-        <locationX>490</locationX>
-        <locationY>4958</locationY>
+        <locationX>968</locationX>
+        <locationY>7022</locationY>
         <inputReference>TasksToCreate</inputReference>
     </recordCreates>
     <recordLookups>
         <description>Get the Contract Record matching the recordId variable.</description>
         <name>getContract</name>
         <label>Get Contract</label>
-        <locationX>1711</locationX>
+        <locationX>2235</locationX>
         <locationY>134</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -1161,7 +1563,7 @@
         <description>Get all NCS Onboarding Template metadata records.</description>
         <name>getNCSOnboardingTemplates</name>
         <label>Get NCS Onboarding Templates</label>
-        <locationX>1711</locationX>
+        <locationX>2235</locationX>
         <locationY>350</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -1175,7 +1577,7 @@
         <description>Get the Id for the Onboarding PMT Project record type and store it in the varPMTProjectRecordTypeId variable.</description>
         <name>getPMTProjectRecordType</name>
         <label>Get PMT Project Record Type</label>
-        <locationX>1436</locationX>
+        <locationX>1957</locationX>
         <locationY>566</locationY>
         <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -1199,7 +1601,7 @@
         <description>Get the Id for the &apos;Onboarding Task&apos; PMT Task record type and store it in the varPMTTaskRecordId variable.</description>
         <name>getPMTTaskRecordType</name>
         <label>Get PMT Task Record Type</label>
-        <locationX>1436</locationX>
+        <locationX>1957</locationX>
         <locationY>674</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
@@ -1221,9 +1623,78 @@
     </recordLookups>
     <recordUpdates>
         <description>Updates the Legal Review Comment.</description>
+        <name>Current_Quarter_Wage_Tax_Items_Update_Contract_Application</name>
+        <label>Current Quarter Wage/Tax Items Update Contract/Application</label>
+        <locationX>314</locationX>
+        <locationY>6062</locationY>
+        <connector>
+            <targetReference>createTasks</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>getContract.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Legal_Review_Comments__c</field>
+            <value>
+                <stringValue>Could not find &quot;Current Quarter Wage/Tax Items&quot; PMT Task templates.</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Contract</object>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Updates the Legal Review Comment.</description>
+        <name>Filed_Returns_in_Current_Year_Update_Contract_Application</name>
+        <label>Filed Returns in Current Year Update Contract/Application</label>
+        <locationX>842</locationX>
+        <locationY>4166</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>getContract.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Legal_Review_Comments__c</field>
+            <value>
+                <stringValue>Could not find &quot;Filed Returns in Current Year&quot; PMT Task templates.</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Contract</object>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Updates the Legal Review Comment.</description>
+        <name>Prior_Quarter_Items_Update_Contract_Application</name>
+        <label>Prior Quarter Items Update Contract/Application</label>
+        <locationX>578</locationX>
+        <locationY>5114</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>getContract.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Legal_Review_Comments__c</field>
+            <value>
+                <stringValue>Could not find &quot;Prior Quarter Items&quot; PMT Task templates.</stringValue>
+            </value>
+        </inputAssignments>
+        <object>Contract</object>
+    </recordUpdates>
+    <recordUpdates>
+        <description>Updates the Legal Review Comment.</description>
         <name>updateContract_NoPhase1Found</name>
         <label>Update Contract/Application</label>
-        <locationX>1722</locationX>
+        <locationX>2250</locationX>
         <locationY>1214</locationY>
         <filterLogic>and</filterLogic>
         <filters>
@@ -1245,7 +1716,7 @@
         <description>Updates the Legal Review Comment.</description>
         <name>updateContract_NoPhase2Found</name>
         <label>Update Contract/Application</label>
-        <locationX>1458</locationX>
+        <locationX>1986</locationX>
         <locationY>2162</locationY>
         <filterLogic>and</filterLogic>
         <filters>
@@ -1267,7 +1738,7 @@
         <description>Updates the Legal Review Comment.</description>
         <name>updateContract_NoPhase3Found</name>
         <label>Update Contract/Application</label>
-        <locationX>1194</locationX>
+        <locationX>1722</locationX>
         <locationY>3110</locationY>
         <filterLogic>and</filterLogic>
         <filters>
@@ -1287,31 +1758,9 @@
     </recordUpdates>
     <recordUpdates>
         <description>Updates the Legal Review Comment.</description>
-        <name>updateContract_NoPhase4Found</name>
-        <label>Update Contract/Application</label>
-        <locationX>314</locationX>
-        <locationY>4166</locationY>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>Id</field>
-            <operator>EqualTo</operator>
-            <value>
-                <elementReference>getContract.Id</elementReference>
-            </value>
-        </filters>
-        <inputAssignments>
-            <field>Legal_Review_Comments__c</field>
-            <value>
-                <stringValue>Could not find &quot;Has Wages&quot; PMT Task templates.</stringValue>
-            </value>
-        </inputAssignments>
-        <object>Contract</object>
-    </recordUpdates>
-    <recordUpdates>
-        <description>Updates the Legal Review Comment.</description>
         <name>updateContract_NoPhase5Found</name>
         <label>Update Contract/Application</label>
-        <locationX>930</locationX>
+        <locationX>1458</locationX>
         <locationY>4166</locationY>
         <filterLogic>and</filterLogic>
         <filters>
@@ -1333,7 +1782,7 @@
         <description>Updates the Legal Review Comment.</description>
         <name>updateContract_NoTemplatesFound</name>
         <label>Update Contract</label>
-        <locationX>1986</locationX>
+        <locationX>2514</locationX>
         <locationY>566</locationY>
         <filterLogic>and</filterLogic>
         <filters>
@@ -1353,7 +1802,7 @@
     </recordUpdates>
     <runInMode>DefaultMode</runInMode>
     <start>
-        <locationX>1585</locationX>
+        <locationX>2109</locationX>
         <locationY>0</locationY>
         <connector>
             <targetReference>getContract</targetReference>
@@ -1372,7 +1821,7 @@
         <text>NCS Onboarding - {!getContract.Client_Name__c} - {!$Flow.CurrentDate}</text>
     </textTemplates>
     <variables>
-        <name>currentItem_filterCollectionPhase4</name>
+        <name>currentItem_Filter_Collection_Current_Quarter_Wage_Tax_Items</name>
         <dataType>SObject</dataType>
         <isCollection>false</isCollection>
         <isInput>false</isInput>
