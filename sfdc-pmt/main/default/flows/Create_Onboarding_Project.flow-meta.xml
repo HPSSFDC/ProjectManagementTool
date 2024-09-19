@@ -1498,6 +1498,12 @@ Current Quarter Wage/Tax Items = 6</description>
             </value>
         </inputAssignments>
         <inputAssignments>
+            <field>Initial_End_Date__c</field>
+            <value>
+                <elementReference>getContract.X1st_Run_Date__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>Initial_Start_Date__c</field>
             <value>
                 <elementReference>$Flow.CurrentDate</elementReference>
@@ -1818,7 +1824,7 @@ Current Quarter Wage/Tax Items = 6</description>
     <textTemplates>
         <name>varPMTProjectName</name>
         <isViewedAsPlainText>true</isViewedAsPlainText>
-        <text>NCS Onboarding - {!getContract.Client_Name__c} - {!$Flow.CurrentDate}</text>
+        <text>NCS Onboarding - {!getContract.Account.Client_Code__c} - {!getContract.Client_Name__c} - {!$Flow.CurrentDate}</text>
     </textTemplates>
     <variables>
         <name>currentItem_Filter_Collection_Current_Quarter_Wage_Tax_Items</name>
