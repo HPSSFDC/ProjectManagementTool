@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
     <sharingCriteriaRules>
+        <fullName>NCS_Implementation_PMT_Project</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Allows Payroll Management read/write PMT Projects with record type = Implementation</description>
+        <label>NCS Implementation PMT Project</label>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Payroll_Management</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Implementation</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>true</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
         <fullName>NCS_Onboarding_PMT_Project</fullName>
         <accessLevel>Edit</accessLevel>
         <description>Allows Payroll Management read/write PMT Projects with record type = Onboarding</description>
