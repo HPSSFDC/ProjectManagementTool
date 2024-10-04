@@ -804,7 +804,7 @@
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <recordType>PMT_Project__c.Onboarding</recordType>
+        <recordType>PMT_Project__c.Implementation</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
