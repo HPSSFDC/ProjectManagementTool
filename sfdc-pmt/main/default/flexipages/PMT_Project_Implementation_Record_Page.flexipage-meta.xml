@@ -47,16 +47,6 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.Gateway_Account__c</fieldItem>
-                <identifier>RecordGateway_Account_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
                 <fieldItem>Record.Type_of_Template__c</fieldItem>
                 <identifier>RecordType_of_Template_cField</identifier>
             </fieldInstance>
@@ -171,16 +161,6 @@
                 </fieldInstanceProperties>
                 <fieldItem>Record.Go_Live_Date__c</fieldItem>
                 <identifier>RecordGo_Live_Date_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.Project_Category__c</fieldItem>
-                <identifier>RecordProject_Category_cField</identifier>
             </fieldInstance>
         </itemInstances>
         <itemInstances>
