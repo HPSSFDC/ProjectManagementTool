@@ -47,16 +47,6 @@
                     <name>uiBehavior</name>
                     <value>none</value>
                 </fieldInstanceProperties>
-                <fieldItem>Record.Type_of_Template__c</fieldItem>
-                <identifier>RecordType_of_Template_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
                 <fieldItem>Record.Application__c</fieldItem>
                 <identifier>RecordApplication_cField</identifier>
             </fieldInstance>
