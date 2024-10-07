@@ -226,6 +226,11 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>Project_Owner_s_Manager__c</field>
+            <table>PMT_Project__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
             <field>Project_Size__c</field>
             <table>PMT_Project__c</table>
         </columns>
