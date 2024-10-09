@@ -4,7 +4,7 @@
         <enabled>true</enabled>
         <name>Is_Payroll_NCS_User</name>
     </customPermissions>
-    <description>Users who are part of the NCS implementation process.</description>
+    <description>Users who are part of the NCS onboarding process</description>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Client_Code_Full__c</field>
@@ -881,7 +881,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <hasActivationRequired>false</hasActivationRequired>
-    <label>NCS Implementers</label>
+    <label>NCS Onboarders</label>
     <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>false</allowDelete>
@@ -909,7 +909,7 @@
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <recordType>PMT_Project__c.Implementation</recordType>
+        <recordType>PMT_Project__c.Onboarding</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
