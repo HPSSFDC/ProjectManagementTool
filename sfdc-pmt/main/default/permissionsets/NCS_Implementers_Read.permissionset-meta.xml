@@ -28,6 +28,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Contract.ACH_Threshold__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Contract.Account_Address__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -313,6 +318,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Contract.Delivery_Method__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Contract.Description</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -393,6 +403,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Contract.FEIN_Change__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Contract.FI_Was_Acquired__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -469,6 +484,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Contract.Initial_Term_Months__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Contract.Input_Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -633,6 +653,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Contract.Paygroup__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Contract.Payroll_Package__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -664,6 +689,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Contract.Primary_Any_Additional_Contacts__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Contract.Prior_Processor__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
