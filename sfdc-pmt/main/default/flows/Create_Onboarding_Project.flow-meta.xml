@@ -1160,6 +1160,32 @@ Current Quarter Wage/Tax Items = 6</description>
     <description>Launched from Flow: Contract OnCreate - Payroll Application</description>
     <environments>Default</environments>
     <formulas>
+        <description>Formats the current Date as MM/DD/YYYY instead of text.</description>
+        <name>CurrentDate</name>
+        <dataType>String</dataType>
+        <expression>TEXT(MONTH($Flow.CurrentDate)) &amp; &quot;/&quot; &amp; TEXT(DAY($Flow.CurrentDate)) &amp; &quot;/&quot; &amp; TEXT(YEAR($Flow.CurrentDate))</expression>
+    </formulas>
+    <formulas>
+        <description>If the Program name is longer than 80 characters, cuts all characters after 77 and appends &quot;...&quot; at the end.</description>
+        <name>FormattedProgramName</name>
+        <dataType>String</dataType>
+        <expression>IF(
+    LEN({!varProgramNameTemplate}) &gt; 80,
+    LEFT({!varProgramNameTemplate}, 77) &amp; &quot;...&quot;,
+    {!varProgramNameTemplate}
+)</expression>
+    </formulas>
+    <formulas>
+        <description>If the subject is longer than 80 characters, cuts all characters after 77 and appends &quot;...&quot; at the end.</description>
+        <name>FormattedProjectName</name>
+        <dataType>String</dataType>
+        <expression>IF(
+    LEN({!varProjectNameTemplate}) &gt; 80,
+    LEFT({!varProjectNameTemplate}, 77) &amp; &quot;...&quot;,
+    {!varProjectNameTemplate}
+)</expression>
+    </formulas>
+    <formulas>
         <name>TodayPlus7</name>
         <dataType>Date</dataType>
         <expression>{!$Flow.CurrentDate} + 7</expression>
@@ -1470,7 +1496,7 @@ Current Quarter Wage/Tax Items = 6</description>
         <inputAssignments>
             <field>Name</field>
             <value>
-                <stringValue>New Client Services - {!getContract.Client_Name__c}</stringValue>
+                <elementReference>FormattedProgramName</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -1491,6 +1517,12 @@ Current Quarter Wage/Tax Items = 6</description>
         <connector>
             <targetReference>filterCollectionPhase1</targetReference>
         </connector>
+        <inputAssignments>
+            <field>Account__c</field>
+            <value>
+                <elementReference>getContract.AccountId</elementReference>
+            </value>
+        </inputAssignments>
         <inputAssignments>
             <field>Application__c</field>
             <value>
@@ -1518,7 +1550,7 @@ Current Quarter Wage/Tax Items = 6</description>
         <inputAssignments>
             <field>Name</field>
             <value>
-                <elementReference>varPMTProjectName</elementReference>
+                <elementReference>FormattedProjectName</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -1816,15 +1848,21 @@ Current Quarter Wage/Tax Items = 6</description>
     </start>
     <status>Active</status>
     <textTemplates>
-        <description>Uses the template: Current Phase Name - Contract&apos;s Client Name</description>
+        <description>Uses the template: Current Phase Name - Contract&apos;s Account Client Code Short</description>
         <name>varPhaseNameTemplate</name>
         <isViewedAsPlainText>true</isViewedAsPlainText>
-        <text>{!varPhaseName} - {!getContract.Client_Name__c}</text>
+        <text>{!varPhaseName} - {!getContract.Account.Client_Code__c}</text>
     </textTemplates>
     <textTemplates>
-        <name>varPMTProjectName</name>
+        <description>Uses the template: New Client Services - Contract&apos;s Client Name</description>
+        <name>varProgramNameTemplate</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;New Client Services - {!getContract.Client_Name__c}&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>varProjectNameTemplate</name>
         <isViewedAsPlainText>true</isViewedAsPlainText>
-        <text>NCS Onboarding - {!getContract.Account.Client_Code__c} - {!getContract.Client_Name__c} - {!$Flow.CurrentDate}</text>
+        <text>NCS Onboarding - {!getContract.Account.Client_Code__c} - {!getContract.Client_Name__c} - {!CurrentDate}</text>
     </textTemplates>
     <variables>
         <name>currentItem_Filter_Collection_Current_Quarter_Wage_Tax_Items</name>

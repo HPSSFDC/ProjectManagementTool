@@ -3621,6 +3621,22 @@
     <description>Launched from Flow: Contract OnUpdate - Payroll Application</description>
     <environments>Default</environments>
     <formulas>
+        <description>Formats the current Date as MM/DD/YYYY instead of text.</description>
+        <name>CurrentDate</name>
+        <dataType>String</dataType>
+        <expression>TEXT(MONTH($Flow.CurrentDate)) &amp; &quot;/&quot; &amp; TEXT(DAY($Flow.CurrentDate)) &amp; &quot;/&quot; &amp; TEXT(YEAR($Flow.CurrentDate))</expression>
+    </formulas>
+    <formulas>
+        <description>If the subject is longer than 80 characters, cuts all characters after 77 and appends &quot;...&quot; at the end.</description>
+        <name>FormattedProjectName</name>
+        <dataType>String</dataType>
+        <expression>IF(
+    LEN({!varProjectNameTemplate}) &gt; 80,
+    LEFT({!varProjectNameTemplate}, 77) &amp; &quot;...&quot;,
+    {!varProjectNameTemplate}
+)</expression>
+    </formulas>
+    <formulas>
         <name>TodayPlus7</name>
         <dataType>Date</dataType>
         <expression>{!$Flow.CurrentDate} + 7</expression>
@@ -4436,6 +4452,12 @@
             <targetReference>getPMTTaskRecordType</targetReference>
         </connector>
         <inputAssignments>
+            <field>Account__c</field>
+            <value>
+                <elementReference>getContract.AccountId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
             <field>Application__c</field>
             <value>
                 <elementReference>getContract.Id</elementReference>
@@ -4462,7 +4484,7 @@
         <inputAssignments>
             <field>Name</field>
             <value>
-                <elementReference>varPMTProjectName</elementReference>
+                <elementReference>FormattedProjectName</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -5096,15 +5118,15 @@
     </start>
     <status>Active</status>
     <textTemplates>
-        <description>Uses the template: Current Phase Name - Contract&apos;s Client Name</description>
+        <description>Uses the template: Current Phase Name - Contract&apos;s Account Client Code Short</description>
         <name>varPhaseNameTemplate</name>
         <isViewedAsPlainText>true</isViewedAsPlainText>
-        <text>{!varPhaseName} - {!getContract.Client_Name__c}</text>
+        <text>{!varPhaseName} - {!getContract.Account.Client_Code__c}</text>
     </textTemplates>
     <textTemplates>
-        <name>varPMTProjectName</name>
+        <name>varProjectNameTemplate</name>
         <isViewedAsPlainText>true</isViewedAsPlainText>
-        <text>NCS Implementation - {!getContract.Account.Client_Code__c} - {!getContract.Client_Name__c} - {!$Flow.CurrentDate}</text>
+        <text>NCS Implementation - {!getContract.Account.Client_Code__c} - {!getContract.Client_Name__c} - {!CurrentDate}</text>
     </textTemplates>
     <variables>
         <name>currentItem_filterCollectionPhase1</name>
