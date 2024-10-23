@@ -2,7 +2,7 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Project_Owner__c</fullName>
     <externalId>false</externalId>
-    <formula>Owner:User.FirstName + &apos; &apos; +  Owner:User.LastName</formula>
+    <formula>IF(  BEGINS(OwnerId, &apos;00G&apos;) ,  Owner:Queue.QueueName , Owner:User.FirstName + &apos; &apos; +  Owner:User.LastName)</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
     <label>Project Owner</label>
     <required>false</required>
