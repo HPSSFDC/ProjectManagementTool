@@ -1856,8 +1856,8 @@ Current Quarter Wage/Tax Items = 6</description>
     <textTemplates>
         <description>Uses the template: New Client Services - Contract&apos;s Client Name</description>
         <name>varProgramNameTemplate</name>
-        <isViewedAsPlainText>false</isViewedAsPlainText>
-        <text>&lt;p&gt;New Client Services - {!getContract.Client_Name__c}&lt;/p&gt;</text>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>New Client Services - {!getContract.Client_Name__c}</text>
     </textTemplates>
     <textTemplates>
         <name>varProjectNameTemplate</name>
