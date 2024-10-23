@@ -21,6 +21,11 @@
         <label>Late</label>
     </customValue>
     <customValue>
+        <fullName>Untouched</fullName>
+        <default>false</default>
+        <label>Untouched</label>
+    </customValue>
+    <customValue>
         <fullName>Pended</fullName>
         <default>false</default>
         <label>Pended</label>
@@ -29,6 +34,56 @@
         <fullName>On Hold</fullName>
         <default>false</default>
         <label>On Hold</label>
+    </customValue>
+    <customValue>
+        <fullName>Canceled</fullName>
+        <default>false</default>
+        <label>Canceled</label>
+    </customValue>
+    <customValue>
+        <fullName>Assignment</fullName>
+        <default>false</default>
+        <label>Assignment</label>
+    </customValue>
+    <customValue>
+        <fullName>Approved</fullName>
+        <default>false</default>
+        <label>Approved</label>
+    </customValue>
+    <customValue>
+        <fullName>In Progress</fullName>
+        <default>false</default>
+        <label>In Progress</label>
+    </customValue>
+    <customValue>
+        <fullName>Completed Build</fullName>
+        <default>false</default>
+        <label>Completed Build</label>
+    </customValue>
+    <customValue>
+        <fullName>Pushed</fullName>
+        <default>false</default>
+        <label>Pushed</label>
+    </customValue>
+    <customValue>
+        <fullName>Processed</fullName>
+        <default>false</default>
+        <label>Processed</label>
+    </customValue>
+    <customValue>
+        <fullName>Transitioned</fullName>
+        <default>false</default>
+        <label>Transitioned</label>
+    </customValue>
+    <customValue>
+        <fullName>No Start</fullName>
+        <default>false</default>
+        <label>No Start</label>
+    </customValue>
+    <customValue>
+        <fullName>Terminated</fullName>
+        <default>false</default>
+        <label>Terminated</label>
     </customValue>
     <customValue>
         <fullName>Completed</fullName>

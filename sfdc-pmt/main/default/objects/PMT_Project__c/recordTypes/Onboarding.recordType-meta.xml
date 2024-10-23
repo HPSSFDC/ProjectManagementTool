@@ -44,31 +44,23 @@
     <picklistValues>
         <picklist>Previous_Project_Health__c</picklist>
         <values>
-            <fullName>At Risk</fullName>
+            <fullName>Approved</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Closed%2C not Completed</fullName>
+            <fullName>Assignment</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Completed</fullName>
+            <fullName>Canceled</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Late</fullName>
+            <fullName>Pended</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Not Started</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>On Hold</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>On Track</fullName>
+            <fullName>Untouched</fullName>
             <default>true</default>
         </values>
     </picklistValues>
@@ -133,36 +125,24 @@
     <picklistValues>
         <picklist>Project_Health__c</picklist>
         <values>
-            <fullName>At Risk</fullName>
+            <fullName>Approved</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Closed%2C not Completed</fullName>
+            <fullName>Assignment</fullName>
             <default>false</default>
         </values>
         <values>
-            <fullName>Completed</fullName>
+            <fullName>Canceled</fullName>
             <default>false</default>
-        </values>
-        <values>
-            <fullName>Late</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Not Started</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>On Hold</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>On Track</fullName>
-            <default>true</default>
         </values>
         <values>
             <fullName>Pended</fullName>
             <default>false</default>
+        </values>
+        <values>
+            <fullName>Untouched</fullName>
+            <default>true</default>
         </values>
     </picklistValues>
     <picklistValues>

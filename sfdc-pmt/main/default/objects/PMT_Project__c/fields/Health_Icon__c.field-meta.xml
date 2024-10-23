@@ -4,17 +4,29 @@
     <description>Icon corresponding to status of the project.</description>
     <externalId>false</externalId>
     <formula>IMAGE(
-CASE(Project_Health__c,
-&quot;Not Started&quot;, &quot;/resource/PMT_Status_logos/Not_Started.png&quot;,
-&quot;On Track&quot;, &quot;/resource/PMT_Status_logos/On_Track.png&quot;,
-&quot;At risk&quot;, &quot;/resource/PMT_Status_logos/At_Risk.png&quot;,
-&quot;Late&quot;, &quot;/resource/PMT_Status_logos/Late.png&quot;,
-&quot;Pended&quot;, &quot;/resource/PMT_Status_logos/On_Hold.png&quot;,
-&quot;On Hold&quot;, &quot;/resource/PMT_Status_logos/On_Hold.png&quot;,
-&quot;Completed&quot;, &quot;/resource/PMT_Status_logos/Completed.png&quot;,
-&quot;Closed, not Completed&quot;, &quot;/resource/PMT_Status_logos/Closed_not_Completed.png&quot;,
-&quot;/resource/PMT_Status_logos/On_Track.png&quot;),
-&quot;status icon&quot;,25,25)</formula>
+      CASE( Project_Health__c,
+            &quot;Not Started&quot;, &quot;/resource/PMT_Status_logos/Not_Started.png&quot;,
+            &quot;No Start&quot;, &quot;/resource/PMT_Status_logos/Not_Started.png&quot;,
+            &quot;Untouched&quot;, &quot;/resource/PMT_Status_logos/Not_Started.png&quot;,
+            &quot;Assignment&quot;, &quot;/resource/PMT_Status_logos/On_Track.png&quot;,
+            &quot;In Progress&quot;, &quot;/resource/PMT_Status_logos/On_Track.png&quot;,
+            &quot;Pushed&quot;, &quot;/resource/PMT_Status_logos/On_Track.png&quot;,
+            &quot;Processed&quot;, &quot;/resource/PMT_Status_logos/On_Track.png&quot;,
+            &quot;On Track&quot;, &quot;/resource/PMT_Status_logos/On_Track.png&quot;,
+            &quot;Transitioned&quot;, &quot;/resource/PMT_Status_logos/On_Track.png&quot;,
+            &quot;At risk&quot;, &quot;/resource/PMT_Status_logos/At_Risk.png&quot;,
+            &quot;Late&quot;, &quot;/resource/PMT_Status_logos/Late.png&quot;,
+            &quot;On Hold&quot;, &quot;/resource/PMT_Status_logos/On_Hold.png&quot;,
+            &quot;Pended&quot;, &quot;/resource/PMT_Status_logos/On_Hold.png&quot;,
+            &quot;Approved&quot;, &quot;/resource/PMT_Status_logos/Completed.png&quot;,
+            &quot;Completed&quot;, &quot;/resource/PMT_Status_logos/Completed.png&quot;,
+            &quot;Completed Build&quot;, &quot;/resource/PMT_Status_logos/Completed.png&quot;,
+            &quot;Terminated&quot;, &quot;/resource/PMT_Status_logos/Completed.png&quot;,
+            &quot;Canceled&quot;, &quot;/resource/PMT_Status_logos/Closed_not_Completed.png&quot;,
+            &quot;Closed, not Completed&quot;, &quot;/resource/PMT_Status_logos/Closed_not_Completed.png&quot;,
+             &quot;/resource/PMT_Status_logos/On_Track.png&quot;
+           ), &quot;status icon&quot;,25,25
+      )</formula>
     <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
     <label>Project Health</label>
     <required>false</required>
