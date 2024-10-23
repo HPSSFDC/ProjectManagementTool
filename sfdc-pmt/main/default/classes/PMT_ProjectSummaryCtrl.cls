@@ -76,8 +76,8 @@ public with sharing class PMT_ProjectSummaryCtrl {
     * ***********************************************/  
     private static List<PMT_Task__c> getLateTasksForProject(Id recordId)
     {
-		return [SELECT id,Name,Status_Icon__c,Start_Date__c,Due_Date__c,Is_Milestone__c,Phase__c,Days_Late__c FROM PMT_Task__c 
-				WHERE Project_Id__c=:recordId AND Days_Late__C > 0 order by Due_Date__c ASC, Name ASC limit: limits.getLimitQueryRows()];
+		return [SELECT id,Name,Status_Icon__c,Start_Date__c,Due_Date__c,Is_Milestone__c,Phase__c,Days_Late__c, Task_Order_Number__c FROM PMT_Task__c 
+				WHERE Project_Id__c=:recordId AND Days_Late__C > 0 order by Task_Order_Number__c ASC, Due_Date__c ASC, Name ASC limit: limits.getLimitQueryRows()];
     }
 
     /*************************************************
@@ -88,8 +88,8 @@ public with sharing class PMT_ProjectSummaryCtrl {
     * ***********************************************/  
     private static List<PMT_Task__c> getOnGoingTasksForProject(Id recordId)
     {
-		return [SELECT id,Name,Status_Icon__c,Start_Date__c,Due_Date__c,Is_Milestone__c,Phase__c,Phase__r.Name,    Days_Late__c FROM PMT_Task__c 
-				WHERE Project_Id__c=:recordId AND Days_Late__C <= 0 order by Due_Date__c ASC, Name ASC limit: limits.getLimitQueryRows()];					      
+		return [SELECT id,Name,Status_Icon__c,Start_Date__c,Due_Date__c,Is_Milestone__c,Phase__c,Phase__r.Name, Days_Late__c, Task_Order_Number__c FROM PMT_Task__c 
+				WHERE Project_Id__c=:recordId AND Days_Late__C <= 0 order by Task_Order_Number__c ASC, Due_Date__c ASC, Name ASC limit: limits.getLimitQueryRows()];					      
     }
 
     /*************************************************

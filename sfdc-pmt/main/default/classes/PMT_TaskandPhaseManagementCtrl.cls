@@ -106,7 +106,7 @@ public with Sharing class PMT_TaskandPhaseManagementCtrl{
         if(PMT_Utility.validateCRUD('PMT_Task__c', lstTaskFields, 'isAccessible') && PMT_Utility.validateCRUD('User', lstUserFields, 'isAccessible') && PMT_Utility.validateCRUD('PMT_Phase__c', lstPhaseFields, 'isAccessible')){
             
             return [SELECT id,Name,Status__c,Assigned_To1__c,Percentage_Completion__c,Assigned_To1__r.Name,Start_Date__c,Due_Date__c,Description__c,On_Hold_Reason__c,Sign_off_status__c,Is_Milestone__c,Phase__c,Status_Icon__c,Status_Icon_Name__c,Phase__r.Name,
-                    Phase__r.Id FROM PMT_Task__c WHERE Project_Id__c=:projectId order by Start_Date__c ASC limit: limits.getLimitQueryRows()];                     
+                    Phase__r.Id, Task_Order_Number__c FROM PMT_Task__c WHERE Project_Id__c=:projectId order by Task_Order_Number__c ASC, Start_Date__c ASC limit: limits.getLimitQueryRows()];                     
                     
                     
         }else{
