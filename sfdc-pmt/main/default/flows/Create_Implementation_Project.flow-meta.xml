@@ -4466,13 +4466,13 @@
         <inputAssignments>
             <field>Initial_End_Date__c</field>
             <value>
-                <elementReference>getContract.X1st_Run_Date__c</elementReference>
+                <elementReference>getContract.Regular_Schedule_Check_Date__c</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
             <field>Initial_Start_Date__c</field>
             <value>
-                <elementReference>$Flow.CurrentDate</elementReference>
+                <elementReference>getContract.Regular_Schedule_Processing_Date__c</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
