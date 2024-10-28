@@ -467,7 +467,7 @@
             <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
-                    <value>required</value>
+                    <value>none</value>
                 </fieldInstanceProperties>
                 <fieldItem>Record.Portfolio__c</fieldItem>
                 <identifier>RecordPortfolio_cField</identifier>
