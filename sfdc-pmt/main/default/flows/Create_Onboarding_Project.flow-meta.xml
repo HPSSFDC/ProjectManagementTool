@@ -1166,6 +1166,12 @@ Current Quarter Wage/Tax Items = 6</description>
         <expression>TEXT(MONTH($Flow.CurrentDate)) &amp; &quot;/&quot; &amp; TEXT(DAY($Flow.CurrentDate)) &amp; &quot;/&quot; &amp; TEXT(YEAR($Flow.CurrentDate))</expression>
     </formulas>
     <formulas>
+        <description>Grabs the last 4 characters from the Contract&apos;s Account&apos;s Client Code Full.</description>
+        <name>FormattedClientCode</name>
+        <dataType>String</dataType>
+        <expression>Right( {!getContract.Account.Client_Code_Full__c}, 4 )</expression>
+    </formulas>
+    <formulas>
         <description>If the Program name is longer than 80 characters, cuts all characters after 77 and appends &quot;...&quot; at the end.</description>
         <name>FormattedProgramName</name>
         <dataType>String</dataType>
@@ -1328,7 +1334,7 @@ Current Quarter Wage/Tax Items = 6</description>
         <inputAssignments>
             <field>Name</field>
             <value>
-                <elementReference>varPhaseNameTemplate</elementReference>
+                <elementReference>varPhaseName</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -1352,7 +1358,7 @@ Current Quarter Wage/Tax Items = 6</description>
         <inputAssignments>
             <field>Name</field>
             <value>
-                <elementReference>varPhaseNameTemplate</elementReference>
+                <elementReference>varPhaseName</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -1376,7 +1382,7 @@ Current Quarter Wage/Tax Items = 6</description>
         <inputAssignments>
             <field>Name</field>
             <value>
-                <elementReference>varPhaseNameTemplate</elementReference>
+                <elementReference>varPhaseName</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -1400,7 +1406,7 @@ Current Quarter Wage/Tax Items = 6</description>
         <inputAssignments>
             <field>Name</field>
             <value>
-                <elementReference>varPhaseNameTemplate</elementReference>
+                <elementReference>varPhaseName</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -1424,7 +1430,7 @@ Current Quarter Wage/Tax Items = 6</description>
         <inputAssignments>
             <field>Name</field>
             <value>
-                <elementReference>varPhaseNameTemplate</elementReference>
+                <elementReference>varPhaseName</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -1448,7 +1454,7 @@ Current Quarter Wage/Tax Items = 6</description>
         <inputAssignments>
             <field>Name</field>
             <value>
-                <elementReference>varPhaseNameTemplate</elementReference>
+                <elementReference>varPhaseName</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -1472,7 +1478,7 @@ Current Quarter Wage/Tax Items = 6</description>
         <inputAssignments>
             <field>Name</field>
             <value>
-                <elementReference>varPhaseNameTemplate</elementReference>
+                <elementReference>varPhaseName</elementReference>
             </value>
         </inputAssignments>
         <inputAssignments>
@@ -1848,12 +1854,6 @@ Current Quarter Wage/Tax Items = 6</description>
     </start>
     <status>Active</status>
     <textTemplates>
-        <description>Uses the template: Current Phase Name - Contract&apos;s Account Client Code Short</description>
-        <name>varPhaseNameTemplate</name>
-        <isViewedAsPlainText>true</isViewedAsPlainText>
-        <text>{!varPhaseName} - {!getContract.Account.Client_Code__c}</text>
-    </textTemplates>
-    <textTemplates>
         <description>Uses the template: New Client Services - Contract&apos;s Client Name</description>
         <name>varProgramNameTemplate</name>
         <isViewedAsPlainText>true</isViewedAsPlainText>
@@ -1862,7 +1862,7 @@ Current Quarter Wage/Tax Items = 6</description>
     <textTemplates>
         <name>varProjectNameTemplate</name>
         <isViewedAsPlainText>true</isViewedAsPlainText>
-        <text>NCS Onboarding - {!getContract.Account.Client_Code__c} - {!getContract.Client_Name__c} - {!CurrentDate}</text>
+        <text>NCS Onboarding - {!FormattedClientCode} - {!getContract.Client_Name__c} - {!CurrentDate}</text>
     </textTemplates>
     <variables>
         <name>currentItem_Filter_Collection_Current_Quarter_Wage_Tax_Items</name>
