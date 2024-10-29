@@ -21,7 +21,7 @@
             &quot;Pended&quot;, &quot;/resource/PMT_Status_logos/On_Hold.png&quot;,                      
             &quot;Processed&quot;, &quot;/resource/PMT_Status_logos/On_Track.png&quot;,
             &quot;Pushed&quot;, &quot;/resource/PMT_Status_logos/On_Hold.png&quot;,   
-            &quot;Terminated&quot;, &quot;/resource/PMT_Status_logos/Closed_not_Completed&quot;,            
+            &quot;Terminated&quot;, &quot;/resource/PMT_Status_logos/Closed_not_Completed.png&quot;,            
             &quot;Transitioned&quot;, &quot;/resource/PMT_Status_logos/Completed.png&quot;,                   
             &quot;Untouched&quot;, &quot;/resource/PMT_Status_logos/Late.png&quot;,
             &quot;/resource/PMT_Status_logos/On_Track.png&quot;
