@@ -822,6 +822,11 @@
         </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
+            <field>RecordType.DeveloperName</field>
+            <table>Contract</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
             <field>Red_Line__c</field>
             <table>Contract</table>
         </columns>
@@ -1468,19 +1473,9 @@
             <field>Type_of_Template__c</field>
             <table>Contract.PMT_Projects__r</table>
         </columns>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>RecordType.DeveloperName</field>
-            <table>Contract.PMT_Projects__r</table>
-        </columns>
         <masterLabel>PMT Projects</masterLabel>
     </sections>
     <sections>
-        <columns>
-            <checkedByDefault>false</checkedByDefault>
-            <field>RecordType.DeveloperName</field>
-            <table>Contract</table>
-        </columns>
         <columns>
             <checkedByDefault>false</checkedByDefault>
             <field>Account.Id</field>
