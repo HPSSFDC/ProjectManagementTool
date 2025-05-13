@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <name>Payroll Midwest</name>
+    <queueMembers>
+        <roleAndSubordinatesInternal>
+            <roleAndSubordinateInternal>Payroll_Management_Manager</roleAndSubordinateInternal>
+        </roleAndSubordinatesInternal>
+        <roles>
+            <role>Payroll_IT</role>
+        </roles>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>PMT_Project__c</sobjectType>
+    </queueSobject>
+</Queue>
