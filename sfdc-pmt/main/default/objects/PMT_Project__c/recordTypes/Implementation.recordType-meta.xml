@@ -157,6 +157,10 @@
             <default>false</default>
         </values>
         <values>
+            <fullName>Submitted for Transition</fullName>
+            <default>false</default>
+        </values>
+        <values>
             <fullName>Terminated</fullName>
             <default>false</default>
         </values>
