@@ -2,10 +2,26 @@
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <apiVersion>60.0</apiVersion>
     <assignments>
+        <name>Assign_Queue_Payroll_Midwest</name>
+        <label>Assign Queue: Payroll Midwest</label>
+        <locationX>2656</locationX>
+        <locationY>866</locationY>
+        <assignmentItems>
+            <assignToReference>varQueueName</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Payroll_NCS_Payroll_Midwest</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>getQueueId</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
         <description>Assigns the running user as the owner if no Sales Region is specified on the Contract.</description>
         <name>Assign_User_as_Owner</name>
         <label>Assign User as Owner</label>
-        <locationX>2788</locationX>
+        <locationX>2920</locationX>
         <locationY>866</locationY>
         <assignmentItems>
             <assignToReference>varQueueId</assignToReference>
@@ -1442,7 +1458,7 @@
     <assignments>
         <name>assignQueue_Atlantic</name>
         <label>Assign Queue: Atlantic</label>
-        <locationX>1468</locationX>
+        <locationX>1336</locationX>
         <locationY>866</locationY>
         <assignmentItems>
             <assignToReference>varQueueName</assignToReference>
@@ -1458,7 +1474,7 @@
     <assignments>
         <name>assignQueue_Central</name>
         <label>Assign Queue: Central</label>
-        <locationX>1996</locationX>
+        <locationX>1864</locationX>
         <locationY>866</locationY>
         <assignmentItems>
             <assignToReference>varQueueName</assignToReference>
@@ -1474,7 +1490,7 @@
     <assignments>
         <name>assignQueue_CrossSellInsideSales</name>
         <label>Assign Queue: CrossSell/Inside Sales</label>
-        <locationX>2524</locationX>
+        <locationX>2392</locationX>
         <locationY>866</locationY>
         <assignmentItems>
             <assignToReference>varQueueName</assignToReference>
@@ -1490,7 +1506,7 @@
     <assignments>
         <name>assignQueue_Pacific</name>
         <label>Assign Queue: Pacific</label>
-        <locationX>2260</locationX>
+        <locationX>2128</locationX>
         <locationY>866</locationY>
         <assignmentItems>
             <assignToReference>varQueueName</assignToReference>
@@ -1506,7 +1522,7 @@
     <assignments>
         <name>assignQueue_Southeast</name>
         <label>Assign Queue: Southeast</label>
-        <locationX>1732</locationX>
+        <locationX>1600</locationX>
         <locationY>866</locationY>
         <assignmentItems>
             <assignToReference>varQueueName</assignToReference>
@@ -3617,8 +3633,25 @@
             </connector>
             <label>CrossSell/Inside Sales</label>
         </rules>
+        <rules>
+            <name>Midwest</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>getContract.Sales_Region__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Payroll Midwest</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_Queue_Payroll_Midwest</targetReference>
+            </connector>
+            <label>Midwest</label>
+        </rules>
     </decisions>
-    <description>Launched from Flow: Contract OnUpdate - Payroll Application</description>
+    <description>Launched from Flow: Contract OnUpdate - Payroll Application
+
+AB#114964 - added logic for Payroll Midwest picklist value from &quot;Sales Region&quot; to rout PMT projects to same queue</description>
     <environments>Default</environments>
     <formulas>
         <description>Formats the current Date as MM/DD/YYYY instead of text.</description>
