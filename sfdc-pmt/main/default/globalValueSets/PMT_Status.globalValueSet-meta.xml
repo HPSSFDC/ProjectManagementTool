@@ -96,6 +96,11 @@
         <label>Closed, not Completed</label>
     </customValue>
     <customValue>
+        <fullName>Submitted for Transition</fullName>
+        <default>false</default>
+        <label>Submitted for Transition</label>
+    </customValue>
+    <customValue>
         <fullName>Complete</fullName>
         <default>false</default>
         <isActive>false</isActive>
